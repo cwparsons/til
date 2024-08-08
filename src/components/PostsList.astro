@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<nav>
+  <ul class="list">
+    {
+      posts.map((post) => (
+        <li class="item">
+          <div>
+            <FormattedDate date={post.data.pubDate} />
+          </div>
+          <div>
+            <a href={`/til/${post.slug}/`}>
+              <h2 class="title">{post.data.title}</h2>
+            </a>
+            <ul class="tag-list">
+              {post.data.tags.map((t) => (
+                <li>#{t}</li>
+              ))}
+            </ul>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .item {
+    @media (min-width: 48rem) {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .tag-list {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>

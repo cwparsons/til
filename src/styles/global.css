@@ -1,0 +1,155 @@
+:root {
+  --accent: 197, 112, 93;
+  --background-color: 235, 235, 235;
+  --background-color-dark: 210, 210, 210;
+  --color: 25, 25, 25;
+
+  @media (prefers-color-scheme: dark) {
+    --background-color: 25, 25, 25;
+    --background-color-dark: 36, 41, 46;
+    --color: 235, 235, 235;
+  }
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  accent-color: rgb(var(--accent));
+  background-color: rgb(var(--background-color));
+  color: rgb(var(--color));
+  font-family: system-ui, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin: 0;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
+  padding: 0;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+header,
+main {
+  max-width: calc(100vw - 2rem);
+  margin-inline: auto;
+  margin-block: 4rem;
+  width: 60rem;
+}
+
+h1,
+.h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  margin-block-end: 0.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.h1 {
+  font-size: 3rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+strong,
+b {
+  font-weight: 600;
+}
+
+a {
+  color: rgb(var(--color));
+  text-decoration-color: rgba(var(--color), 0.5);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+
+  &:focus-visible,
+  &:hover {
+    color: rgb(var(--accent));
+    text-decoration-color: rgb(var(--accent));
+  }
+}
+
+p {
+  margin-bottom: 1em;
+
+  a {
+    text-decoration-thickness: 1px;
+  }
+}
+
+textarea {
+  width: 100%;
+  font-size: 1rem;
+}
+
+input {
+  font-size: 1rem;
+}
+
+table {
+  width: 100%;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+time {
+  display: inline-block;
+  margin-block-start: 0.5rem;
+}
+
+code {
+  padding: 0.25rem;
+  background-color: rgb(var(--background-color-dark));
+  border-radius: 2px;
+  font-size: 18px;
+}
+
+pre {
+  padding: 1.5em;
+  border-radius: 8px;
+}
+
+pre > code {
+  all: unset;
+}
+
+blockquote {
+  border-left: 4px solid rgb(var(--accent));
+  padding: 0 0 0 20px;
+  margin: 0px;
+  font-style: italic;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid rgb(var(--color));
+}
+
+.astro-code {
+  font-size: 0.825rem;
+}

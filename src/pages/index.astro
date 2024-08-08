@@ -1,0 +1,21 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import PostsList from '../components/PostsList.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <header>
+      <a href="/til"><h1 class="h1">TIL</h1></a>
+    </header>
+
+    <main>
+      <PostsList />
+    </main>
+  </body>
+</html>

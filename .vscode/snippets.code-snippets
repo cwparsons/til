@@ -1,0 +1,15 @@
+{
+  "Insert Front Matter": {
+    "prefix": "frontmatter",
+    "body": [
+      "---",
+      "title: ''",
+      "description: ''",
+      "pubDate: ",
+      "tags: []",
+      "---"
+    ],
+    "scope": "markdown",
+    "description": "Insert front matter"
+  }
+}

@@ -1,0 +1,76 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+import BaseHead from './BaseHead.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, tags } = Astro.props;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  creator: 'Christopher Parsons',
+  description: description,
+  datePublished: pubDate,
+};
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={`${title} - TIL`} description={description} />
+  </head>
+
+  <body>
+    <header>
+      <a class="h1" href="/til">TIL</a>
+    </header>
+
+    <main>
+      <article>
+        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+        <header class="header">
+          <div class="metadata">
+            <FormattedDate date={pubDate} />
+          </div>
+          <div class="title">
+            <h1 class="h2">{title}</h1>
+            <ul class="tag-list">
+              {tags.map((t) => <li>#{t}</li>)}
+            </ul>
+          </div>
+        </header>
+
+        <div class="content">
+          <slot />
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
+
+<style>
+  .header {
+    @media (min-width: 48rem) {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .tag-list {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .content {
+    @media (min-width: 48rem) {
+      margin-inline-start: 12rem;
+    }
+  }
+</style>

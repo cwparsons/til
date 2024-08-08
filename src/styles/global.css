@@ -38,8 +38,8 @@ main {
   width: 60rem;
 }
 
+.logo,
 h1,
-.h1,
 h2,
 h3,
 h4,
@@ -51,7 +51,7 @@ h6 {
   line-height: 1.2;
 }
 
-.h1 {
+.logo {
   font-size: 3rem;
 }
 

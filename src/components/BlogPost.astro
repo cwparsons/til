@@ -17,7 +17,7 @@ const structuredData = {
 };
 ---
 
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <BaseHead title={`${title} - TIL`} description={description} />
   </head>
@@ -43,7 +43,7 @@ const structuredData = {
           </div>
         </header>
 
-        <div class="content">
+        <div class="content" transition:animate="fade">
           <slot />
         </div>
       </article>

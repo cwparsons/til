@@ -36,7 +36,7 @@ const structuredData = {
             <FormattedDate date={pubDate} />
           </div>
           <div class="title">
-            <h1 class="h2">{title}</h1>
+            <h1 class="h2 title">{title}</h1>
             <ul class="tag-list">
               {tags.map((t) => <li>#{t}</li>)}
             </ul>
@@ -58,6 +58,10 @@ const structuredData = {
       grid-template-columns: 8rem 1fr;
       gap: 4rem;
     }
+  }
+
+  .title {
+    margin-block-start: 0;
   }
 
   .tag-list {

@@ -30,6 +30,10 @@ body {
   word-wrap: break-word;
 }
 
+::selection {
+  background-color: rgba(var(--accent), 0.5);
+}
+
 header,
 main {
   max-width: calc(100vw - 2rem);
@@ -45,8 +49,8 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  margin-block-end: 0.5rem;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
   font-weight: 600;
   line-height: 1.2;
 }
@@ -61,10 +65,12 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  margin-block-start: 3rem;
 }
 
 h3 {
   font-size: 1.5rem;
+  margin-block-start: 2rem;
 }
 
 h4 {
@@ -150,6 +156,12 @@ hr {
   border-top: 1px solid rgb(var(--color));
 }
 
-.astro-code {
+.astro-code,
+.astro-code span {
   font-size: 0.825rem;
+
+  @media (prefers-color-scheme: dark) {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
 }

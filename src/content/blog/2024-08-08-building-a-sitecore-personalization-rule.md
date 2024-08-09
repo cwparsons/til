@@ -1,7 +1,7 @@
 ---
 title: Building a Sitecore personalization rule with multiple options
 description: Basic instructions on building a Sitecore personalization rule.
-pubDate: 2024-08-07
+pubDate: 2024-08-08
 tags: ['sitecore']
 ---
 

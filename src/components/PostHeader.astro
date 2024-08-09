@@ -1,0 +1,50 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+type Props = CollectionEntry<'blog'>['data'] & { slug: string; isLink?: boolean };
+
+const { isLink, title, pubDate, slug, tags } = Astro.props;
+---
+
+<div class="header" transition:name={`post-${slug};`}>
+  <div class="metadata">
+    <FormattedDate date={pubDate} />
+  </div>
+  <div>
+    {
+      isLink ? (
+        <a href={`/til/${slug}`}>
+          <h2 class="h1 title">{title}</h2>
+        </a>
+      ) : (
+        <h1 class="h1 title">{title}</h1>
+      )
+    }
+    <ul class="tag-list">
+      {tags.map((t) => <li>#{t}</li>)}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .header {
+    @media (min-width: 48rem) {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      gap: 4rem;
+    }
+  }
+
+  .title {
+    margin-block-start: 0;
+  }
+
+  .tag-list {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>

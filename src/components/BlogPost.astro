@@ -2,10 +2,11 @@
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
 import BaseHead from './BaseHead.astro';
+import PostHeader from './PostHeader.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & { slug: string };
 
-const { title, description, pubDate, tags } = Astro.props;
+const { title, description, pubDate, slug, tags } = Astro.props;
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -17,7 +18,7 @@ const structuredData = {
 };
 ---
 
-<html lang="en" transition:animate="none">
+<html lang="en">
   <head>
     <BaseHead title={`${title} - TIL`} description={description} />
   </head>
@@ -29,21 +30,11 @@ const structuredData = {
 
     <main>
       <article>
-        <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
-        <header class="header">
-          <div class="metadata">
-            <FormattedDate date={pubDate} />
-          </div>
-          <div class="title">
-            <h1 class="h2 title">{title}</h1>
-            <ul class="tag-list">
-              {tags.map((t) => <li>#{t}</li>)}
-            </ul>
-          </div>
-        </header>
+        <PostHeader {...Astro.props} />
 
-        <div class="content" transition:animate="fade">
+        <div class="content" transition:name="content">
           <slot />
         </div>
       </article>
@@ -52,27 +43,24 @@ const structuredData = {
 </html>
 
 <style>
-  .header {
-    @media (min-width: 48rem) {
-      display: grid;
-      grid-template-columns: 8rem 1fr;
-      gap: 4rem;
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px); /* Start slightly below the final position */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* End at the final position */
     }
   }
 
-  .title {
-    margin-block-start: 0;
-  }
-
-  .tag-list {
-    display: flex;
-    gap: 1rem;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-
   .content {
+    @media not (prefers-reduced-motion) {
+      opacity: 0;
+      animation: fadeInUp 0.25s ease-out forwards;
+      /* animation-delay: 0.25s; */
+    }
+
     @media (min-width: 48rem) {
       margin-inline-start: 12rem;
     }

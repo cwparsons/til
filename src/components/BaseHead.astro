@@ -1,6 +1,4 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
-
 import '../styles/global.css';
 
 interface Props {
@@ -36,5 +34,3 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="og:image" content={new URL(image, Astro.url)} />
 
 <link rel="sitemap" href="/til/sitemap-index.xml" />
-
-<ViewTransitions />

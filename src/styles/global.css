@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light dark;
   --accent: 197, 112, 93;
   --background-color: 235, 235, 235;
   --background-color-dark: 210, 210, 210;
@@ -8,6 +9,12 @@
     --background-color: 25, 25, 25;
     --background-color-dark: 36, 41, 46;
     --color: 235, 235, 235;
+  }
+}
+
+@media not (prefers-reduced-motion) {
+  @view-transition {
+    navigation: auto;
   }
 }
 
@@ -59,7 +66,8 @@ h6 {
   font-size: 3rem;
 }
 
-h1 {
+h1,
+.h1 {
   font-size: 2.5rem;
 }
 
@@ -87,6 +95,8 @@ a {
   text-decoration-color: rgba(var(--color), 0.5);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
+  transition-property: color text-decoration-color;
+  transition-duration: 0.1s;
 
   &:focus-visible,
   &:hover {

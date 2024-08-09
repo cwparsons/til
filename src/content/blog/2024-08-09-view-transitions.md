@@ -17,6 +17,8 @@ Reading up on the [View Transitions API](https://developer.mozilla.org/en-US/doc
 }
 ```
 
-I struggled initially trying to use both the Astro functionality (`<ViewTransitions>`) and native CSS functionality. Moving towards just the CSS approach made things easier, but I forgot to remove some of the original Astro transition props.
+I struggled initially trying to use both the Astro functionality (`<ViewTransitions>`) and native CSS functionality. Even just using Astro's `transition:name` prop caused it to create a ton of extra CSS styling. Moving towards just the CSS approach made things easier, but I forgot to remove some of the original Astro transition props.
+
+Another issue I ran into is that view transitions don't work on page redirects. This host enforces trailing slashes on URLs, and I wasn't adding them into my links, so the 307 redirect killed the transition.
 
 One thing I don't like with my implementation is that if you scroll down on the homepage, click on a blog post, then click on the logo to return to the homepage, the original link is no longer in the viewport. This looks a little janky. There seems to be discussion in the CSS group regarding this [issue](https://github.com/w3c/csswg-drafts/issues/8282).

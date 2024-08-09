@@ -31,12 +31,24 @@ tags: ['sitecore']
    }
    ```
 
-2. Create a new _Condition_ under `/sitecore/system/Settings/Rules/Definitions/Elements`.
+2. Create a new _Condition_ under
+
+   ```
+   /sitecore/system/Settings/Rules/Definitions/Elements
+   ```
 
 3. Create a folder underneath the _Condition_ to contain the option types.
 
 4. Create items of _Standard Template_ to represent each option type. Leverage the name within your logic and set the display name to something helpful for the author.
 
-5. Set the _Text_ of the condition to: `where the (context) has any [Value,TreeList,root=/sitecore/system/Settings/Rules/Definitions/Elements/Options&&selection={1930BBEB-7805-471A-A3BE-4858AC7CF696}, the list]`.
+5. Set the _Text_ of the condition to:
 
-6. Set the _Type_ of the condition to `Customer.Feature.FeatureName.Rules.Conditions.NewCondition, Customer.Feature.FeatureName`.
+   ```text
+   where the (context) has any [Value,TreeList,root=/sitecore/system/Settings/Rules/Definitions/Elements/Options&&selection={1930BBEB-7805-471A-A3BE-4858AC7CF696}, the list]
+   ```
+
+6. Set the _Type_ of the condition to:
+
+   ```text
+   Customer.Feature.FeatureName.Rules.Conditions.NewCondition, Customer.Feature.FeatureName
+   ```

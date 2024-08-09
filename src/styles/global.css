@@ -18,6 +18,11 @@
   }
 }
 
+html,
+body {
+  min-height: 100vh;
+}
+
 html {
   font-size: 16px;
 }
@@ -41,29 +46,16 @@ body {
   background-color: rgba(var(--accent), 0.5);
 }
 
-header,
-main {
-  max-width: calc(100vw - 2rem);
-  margin-inline: auto;
-  margin-block: 4rem;
-  width: 60rem;
-}
-
-.logo,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin-block-start: 0;
   margin-block-end: 1rem;
   font-weight: 600;
   line-height: 1.2;
-}
-
-.logo {
-  font-size: 3rem;
+  text-wrap: balance;
 }
 
 h1,
@@ -83,6 +75,7 @@ h3 {
 
 h4 {
   font-size: 1.25rem;
+  margin-block-start: 1.5rem;
 }
 
 strong,
@@ -95,13 +88,16 @@ a {
   text-decoration-color: rgba(var(--color), 0.5);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
-  transition-property: color text-decoration-color;
-  transition-duration: 0.1s;
+
+  @media not (prefers-reduced-motion) {
+    transition-property: background-image color text-decoration-color;
+    transition-duration: 0.1s;
+  }
 
   &:focus-visible,
   &:hover {
     color: rgb(var(--accent));
-    text-decoration-color: rgb(var(--accent));
+    text-decoration-color: rgba(var(--accent), 0.5);
   }
 }
 
@@ -174,4 +170,23 @@ hr {
     color: var(--shiki-dark) !important;
     background-color: var(--shiki-dark-bg) !important;
   }
+}
+
+.astro-code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+.astro-code:has(.line:nth-child(4)) .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: rgb(var(--color), 0.5);
+}
+
+.astro-code[data-language='text'] {
+  white-space: pre-wrap;
 }

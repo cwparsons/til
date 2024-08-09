@@ -8,23 +8,19 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
 ---
 
 <div class="header" style={`view-transition-name: post-${slug};`}>
-  <div class="metadata">
-    <FormattedDate date={pubDate} />
-  </div>
-  <div>
-    {
-      isLink ? (
-        <a href={`/til/${slug}/`}>
-          <h2 class="h1 title">{title}</h2>
-        </a>
-      ) : (
-        <h1 class="h1 title">{title}</h1>
-      )
-    }
-    <ul class="tag-list">
-      {tags.map((t) => <li>#{t}</li>)}
-    </ul>
-  </div>
+  <FormattedDate date={pubDate} />
+  {
+    isLink ? (
+      <a href={`/til/${slug}/`}>
+        <h2 class="h1 title">{title}</h2>
+      </a>
+    ) : (
+      <h1 class="h1 title">{title}</h1>
+    )
+  }
+  <ul class="tag-list">
+    {tags.map((t) => <li>#{t}</li>)}
+  </ul>
 </div>
 
 <style>
@@ -32,7 +28,11 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
     @media (min-width: 48rem) {
       display: grid;
       grid-template-columns: 8rem 1fr;
-      gap: 4rem;
+      column-gap: 4rem;
+    }
+
+    > *:first-child {
+      grid-row: span 2 / span 2;
     }
   }
 

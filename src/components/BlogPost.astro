@@ -17,29 +17,15 @@ const structuredData = {
 };
 ---
 
-<html lang="en">
-  <head>
-    <BaseHead title={`${title} - TIL`} description={description} />
-  </head>
+<article>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
-  <body>
-    <header>
-      <a class="logo" href="/til/">TIL</a>
-    </header>
+  <PostHeader {...Astro.props} />
 
-    <main>
-      <article>
-        <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-
-        <PostHeader {...Astro.props} />
-
-        <div class="content">
-          <slot />
-        </div>
-      </article>
-    </main>
-  </body>
-</html>
+  <div class="content">
+    <slot />
+  </div>
+</article>
 
 <style>
   @keyframes fadeInUp {

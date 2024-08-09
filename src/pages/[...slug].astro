@@ -1,6 +1,9 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
+
 import BlogPost from '../components/BlogPost.astro';
+import Layout from '../components/Layout.astro';
+import { SITE_TITLE } from '../consts';
 
 type Props = CollectionEntry<'blog'>;
 
@@ -17,6 +20,8 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<BlogPost slug={post.slug} {...post.data}>
-  <Content />
-</BlogPost>
+<Layout title={`${post.data.title} - ${SITE_TITLE}`}>
+  <BlogPost slug={post.slug} {...post.data}>
+    <Content />
+  </BlogPost>
+</Layout>

@@ -7,7 +7,7 @@ type Props = CollectionEntry<'blog'>['data'] & { slug: string; isLink?: boolean 
 const { isLink, title, pubDate, slug, tags } = Astro.props;
 ---
 
-<div class="header" transition:name={`post-${slug};`}>
+<div class="header" style={`view-transition-name: post-${slug};`}>
   <div class="metadata">
     <FormattedDate date={pubDate} />
   </div>

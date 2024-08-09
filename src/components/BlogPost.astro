@@ -1,12 +1,11 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import FormattedDate from './FormattedDate.astro';
 import BaseHead from './BaseHead.astro';
 import PostHeader from './PostHeader.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { slug: string };
 
-const { title, description, pubDate, slug, tags } = Astro.props;
+const { title, description, pubDate } = Astro.props;
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -34,7 +33,7 @@ const structuredData = {
 
         <PostHeader {...Astro.props} />
 
-        <div class="content" transition:name="content">
+        <div class="content">
           <slot />
         </div>
       </article>

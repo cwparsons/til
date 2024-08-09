@@ -5,7 +5,7 @@ pubDate: 2020-09-20
 tags: ['project', 'spfx']
 ---
 
-![Screenshot of the a sample email signature.](../images/2020-09-20-spfx-email-signature)
+![Screenshot of the a sample email signature.](../images/2020-09-20-spfx-email-signature.png)
 
 This web part allows users to copy their company's branded email signature and paste it into their email client. Includes an example of using [Testing Library](https://testing-library.com/) with the SharePoint Framework.
 

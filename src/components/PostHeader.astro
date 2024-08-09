@@ -14,7 +14,7 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
   <div>
     {
       isLink ? (
-        <a href={`/til/${slug}`}>
+        <a href={`/til/${slug}/`}>
           <h2 class="h1 title">{title}</h2>
         </a>
       ) : (

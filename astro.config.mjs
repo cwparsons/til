@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
@@ -13,14 +12,12 @@ export default defineConfig({
         dark: 'github-dark',
         light: 'github-light',
       },
-
       transformers: [
         {
           preprocess(code) {
             if (code.endsWith('\n')) {
               code = code.slice(0, -1);
             }
-
             return code;
           },
         },

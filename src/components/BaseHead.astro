@@ -1,15 +1,14 @@
 ---
 import '../styles/global.css';
 
-interface Props {
+type Props = {
   title: string;
   description: string;
-  image?: string;
-}
+};
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -31,6 +30,6 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image" content={`${canonicalURL}opengrpah.png`} />
 
 <link rel="sitemap" href="/til/sitemap-index.xml" />

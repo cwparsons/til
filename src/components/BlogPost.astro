@@ -1,6 +1,5 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from './BaseHead.astro';
 import PostHeader from './PostHeader.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & { slug: string };
@@ -48,6 +47,7 @@ const structuredData = {
 
     @media (min-width: 48rem) {
       margin-inline-start: 12rem;
+      margin-block-start: 3rem;
     }
   }
 </style>

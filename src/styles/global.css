@@ -1,13 +1,12 @@
 :root {
   color-scheme: light dark;
-  --accent: 197, 112, 93;
+  --accent: 215, 58, 73;
   --background-color: 235, 235, 235;
-  --background-color-dark: 210, 210, 210;
   --color: 25, 25, 25;
 
   @media (prefers-color-scheme: dark) {
+    --accent: 249, 117, 131;
     --background-color: 25, 25, 25;
-    --background-color-dark: 36, 41, 46;
     --color: 235, 235, 235;
   }
 }
@@ -51,9 +50,18 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  margin-block-end: 1rem;
+h6,
+b,
+strong {
   font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: 1.2;
   text-wrap: balance;
 }
@@ -61,10 +69,12 @@ h6 {
 h1,
 .h1 {
   font-size: 2.5rem;
+  margin-block-end: 1rem;
 }
 
 h2 {
   font-size: 2rem;
+  margin-block-end: 1rem;
   margin-block-start: 3rem;
 }
 
@@ -78,19 +88,15 @@ h4 {
   margin-block-start: 1.5rem;
 }
 
-strong,
-b {
-  font-weight: 600;
-}
-
 a {
   color: rgb(var(--color));
   text-decoration-color: rgba(var(--color), 0.5);
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+  text-decoration-skip: edges;
 
   @media not (prefers-reduced-motion) {
-    transition-property: background-image color text-decoration-color;
+    transition-property: color, text-decoration-color;
     transition-duration: 0.1s;
   }
 
@@ -103,19 +109,6 @@ a {
 
 p {
   margin-bottom: 1em;
-
-  a {
-    text-decoration-thickness: 1px;
-  }
-}
-
-textarea {
-  width: 100%;
-  font-size: 1rem;
-}
-
-input {
-  font-size: 1rem;
 }
 
 table {
@@ -136,14 +129,14 @@ time {
 
 code {
   padding: 0.25rem;
-  background-color: rgb(var(--background-color-dark));
+  background-color: rgba(var(--accent), 0.15);
   border-radius: 2px;
-  font-size: 18px;
+  font-size: 1.125rem;
 }
 
 pre {
   padding: 1.5em;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 pre > code {
@@ -151,30 +144,39 @@ pre > code {
 }
 
 blockquote {
-  border-left: 4px solid rgb(var(--accent));
-  padding: 0 0 0 20px;
-  margin: 0px;
+  border-left: 0.25rem solid rgb(var(--accent));
+  padding: 0;
+  padding-inline-start: 1.5rem;
+  margin: 0;
   font-style: italic;
 }
 
 hr {
   border: none;
-  border-top: 1px solid rgb(var(--color));
+  border-block-start: 1px solid rgb(var(--color));
 }
 
 .astro-code,
 .astro-code span {
-  font-size: 0.825rem;
-
-  @media (prefers-color-scheme: dark) {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-  }
 }
 
 .astro-code {
   counter-reset: step;
   counter-increment: step 0;
+
+  &,
+  span {
+    font-size: 0.825rem;
+
+    @media (prefers-color-scheme: dark) {
+      color: var(--shiki-dark) !important;
+      background-color: var(--shiki-dark-bg) !important;
+    }
+  }
+
+  &[data-language='text'] {
+    white-space: pre-wrap;
+  }
 }
 
 .astro-code:has(.line:nth-child(4)) .line::before {
@@ -185,8 +187,4 @@ hr {
   display: inline-block;
   text-align: right;
   color: rgb(var(--color), 0.5);
-}
-
-.astro-code[data-language='text'] {
-  white-space: pre-wrap;
 }

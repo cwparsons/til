@@ -2,7 +2,7 @@
 title: 'SharePoint full-page capture bookmarklet'
 description: 'A bookmarklet that helps take full-page screenshots of SharePoint pages.'
 pubDate: 2023-05-17
-tags: ['bookmarklet', 'project', 'sharepoint']
+tags: ['bookmarklet', 'sharepoint-spfx']
 ---
 
 This bookmarklet allows users to take a full-page screenshot without needing to stitch together images. It requires using Microsoft Edge.

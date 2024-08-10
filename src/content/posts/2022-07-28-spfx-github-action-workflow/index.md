@@ -2,10 +2,10 @@
 title: 'spfx-github-action-workflow'
 description: 'Sample GitHub Actions for building SharePoint Framework (SPFx) packages.'
 pubDate: 2022-07-28
-tags: ['project', 'spfx', 'github']
+tags: ['project', 'sharepoint-spfx', 'github']
 ---
 
-This repository has a couple sample GitHub ACtions for building SharePoint Framework (SPFx) packages.
+This repository has a couple sample GitHub Actions for building SharePoint Framework (SPFx) packages.
 
 [Check out the repository on GitHub](https://github.com/cwparsons/spfx-github-action-workflow/tree/main/.github/workflows).
 

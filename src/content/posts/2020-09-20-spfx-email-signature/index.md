@@ -2,7 +2,7 @@
 title: 'spfx-email-signature'
 description: 'A SharePoint Framework (SPFx) package to help generate branded email signatures.'
 pubDate: 2020-09-20
-tags: ['project', 'spfx']
+tags: ['project', 'sharepoint-spfx']
 ---
 
 ![Screenshot of the a sample email signature.](1.png)

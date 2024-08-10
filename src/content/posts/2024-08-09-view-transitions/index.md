@@ -2,7 +2,7 @@
 title: View transitions
 description: Initial learnings about how to use the view transition API
 pubDate: 2024-08-09
-tags: ['css']
+tags: ['html-css']
 ---
 
 I added view transitions to this site and am happy with the basic result in that it matched what I thought it would in my head.

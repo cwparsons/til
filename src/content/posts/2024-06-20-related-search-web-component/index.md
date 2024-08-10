@@ -2,7 +2,7 @@
 title: 'Related search web component for PnP Modern Search'
 description: 'A web component for showing related search results within a PnP Modern Search result.'
 pubDate: June 20, 2024
-tags: ['spfx', 'web-components']
+tags: ['sharepoint-spfx', 'web-components']
 ---
 
 A web component for showing related search results within a [PnP Modern Search](https://microsoft-search.github.io/pnp-modern-search/) result. At work, this was used within a `pnp-panel` web component to show documents related to the original search result.

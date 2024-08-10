@@ -20,11 +20,13 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
     )
   }
   <ul class="tag-list">
-    {tags.map((t) => (
-      <li>
-        <a href={`/til/tags/${t}`}>#{t}</a>
-      </li>
-    ))}
+    {
+      tags.sort().map((t) => (
+        <li>
+          <a href={`/til/tags/${t}/`}>#{t}</a>
+        </li>
+      ))
+    }
   </ul>
 </div>
 

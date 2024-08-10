@@ -2,7 +2,7 @@
 title: 'Client-side image resizing using Habasizer'
 description: 'A React app that focuses on cropping and resizing images to specific aspect ratios.'
 pubDate: 2020-08-12
-tags: ['project', 'react']
+tags: ['images', 'project', 'react']
 ---
 
 ![A screenshot of Habasizer](1.png)

@@ -2,7 +2,7 @@
 title: 'SharePoint Framework debug bookmarklet'
 description: 'A bookmarklet to add the SPFx debug query strings.'
 pubDate: 2021-08-01
-tags: ['bookmarklet', 'spfx']
+tags: ['bookmarklet', 'sharepoint-spfx']
 ---
 
 This bookmark adds the default development query string for SPFx to the current URL.

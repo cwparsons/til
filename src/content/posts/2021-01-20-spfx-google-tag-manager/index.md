@@ -2,7 +2,7 @@
 title: 'spfx-google-tag-manager'
 description: 'This application customizer for SharePoint Online adds Google Tag Manager to your SharePoint site.'
 pubDate: 2021-01-20
-tags: ['project', 'spfx']
+tags: ['project', 'sharepoint-spfx']
 ---
 
 This application customizer for SharePoint Online adds Google Tag Manager to your SharePoint site. It is configurable to generate encrypted user IDs to send to the `dataLayer` for use within Google Analytics.

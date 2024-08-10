@@ -2,7 +2,7 @@
 title: 'SharePoint Framework web part icon generator'
 description: 'This generator creates custom SharePoint Framework web part icons using Fluent UI icons and a custom SVG'
 pubDate: 2022-02-1
-tags: ['project', 'spfx']
+tags: ['project', 'sharepoint-spfx']
 ---
 
 This generator creates custom SharePoint Framework web part icons using Fluent UI icons and a custom SVG.

@@ -2,7 +2,7 @@
 title: 'sp-theme-provider'
 description: 'A React provider and hook for getting SharePoint theme values.'
 pubDate: 2021-04-16
-tags: ['spfx']
+tags: ['sharepoint-spfx']
 ---
 
 A React provider and hook for getting SharePoint theme values.

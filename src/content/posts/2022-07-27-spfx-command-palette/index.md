@@ -2,7 +2,7 @@
 title: 'spfx-command-palette'
 description: 'A command palette built with SPFx for modern SharePoint.'
 pubDate: 2022-07-27
-tags: ['project', 'spfx']
+tags: ['project', 'sharepoint-spfx']
 ---
 
 A command palette for SharePoint using SharePoint Framework (SPFx) and [ninja-keys](https://github.com/ssleptsov/ninja-keys).

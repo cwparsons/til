@@ -2,7 +2,7 @@
 title: Generating images dynamically using Satori
 description: Learnings around generating Open Graph images dynamically using Satori.
 pubDate: 2024-08-10
-tags: ['html', 'images']
+tags: ['html-css', 'images']
 ---
 
 Open Graph images are used by messaging apps and social media sites to show a preview of the content of a page. Creating these graphics with dynamic metadata would be a chore to do manually, but luckily there are a lot of resources out there to build them.
@@ -240,7 +240,7 @@ export async function PNG(title: string) {
 
 This is another example of an dynamically generated image, using other images and translated content as a source. This takes in content from another app to get automatically posted in a Google Photos album.
 
-This uses [`resvg-js`](https://github.com/yisibl/resvg-js) to generate the image nad
+This uses [`resvg-js`](https://github.com/yisibl/resvg-js) to generate the image.
 
 ![Dynamically generated image](3.png)
 

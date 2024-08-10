@@ -2,7 +2,7 @@
 title: 'Looping through people in a PnP Modern Search result template'
 description: 'A method for looping through people values in a PnP Modern Search result template.'
 pubDate: 2024-05-31
-tags: ['pnp-modern-search', 'sharepoint']
+tags: ['pnp-modern-search', 'sharepoint-spfx']
 ---
 
 When retrieving multiple users using PnP Modern Search, you'll get something like this:

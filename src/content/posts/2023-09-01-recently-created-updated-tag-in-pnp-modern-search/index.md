@@ -2,7 +2,7 @@
 title: Show recently created or updated tags in PnP Modern Search
 description: Show a badge on search results that are recently created or recently updated in PnP Modern Search.
 pubDate: 2023-09-01
-tags: ['pnp-modern-search', 'sharepoint']
+tags: ['pnp-modern-search', 'sharepoint-spfx']
 ---
 
 The following Handlebars template shows **New** if the item is created in the past 7 days. If it's not new, it will show **Recently updated** if the item was modified in the past 7 days.

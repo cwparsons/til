@@ -1,5 +1,5 @@
 ---
-import list from '@/content/read-list/list.yaml';
+import list from '@/content/recently-read/list.yml';
 
 type Props = {
   showTop?: number;
@@ -15,7 +15,7 @@ const { showTop = 5 } = Astro.props;
     {
       list.slice(0, showTop).map((item) => (
         <li>
-          <a href={item.url}>{item.title}</a>
+          <a href={item.url}>{item.title ?? item.url}</a>
         </li>
       ))
     }

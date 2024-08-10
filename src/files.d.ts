@@ -1,5 +1,9 @@
-// Specify the file extension you want to import
 declare module '*.yml' {
-  const value: any; // Add type definitions here if desired
+  const value: {
+    url: string;
+    title?: string;
+    tags: string[];
+  }[];
+
   export default value;
 }

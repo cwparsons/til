@@ -1,28 +1,47 @@
 ---
 import { getCollection } from 'astro:content';
 
-type Props = { tag?: string };
+type Props = { tag?: string; top?: number };
 
 import PostHeader from '@/components/PostHeader.astro';
+import RecentlyRead from '@/components/RecentlyRead.astro';
 
-const { tag } = Astro.props;
+const { tag, top = 1 } = Astro.props;
+
+const showTop = tag ? Infinity : top;
 
 const posts = (await getCollection('posts'))
   .filter((t) => !tag || t.data.tags.includes(tag))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<nav>
-  <ul class="list">
-    {
-      posts.map((post) => (
-        <li>
-          <PostHeader isLink={true} slug={post.slug} {...post.data} />
-        </li>
-      ))
-    }
-  </ul>
-</nav>
+<ul class="list">
+  {
+    posts.slice(0, showTop).map((post) => (
+      <li>
+        <PostHeader isLink={true} slug={post.slug} {...post.data} />
+      </li>
+    ))
+  }
+</ul>
+
+{
+  !tag && (
+    <>
+      <div class="section">
+        <RecentlyRead />
+      </div>
+
+      <ul class="list">
+        {posts.slice(showTop).map((post) => (
+          <li>
+            <PostHeader isLink={true} slug={post.slug} {...post.data} />
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
 
 <style>
   .list {
@@ -30,7 +49,18 @@ const posts = (await getCollection('posts'))
     flex-direction: column;
     gap: clamp(2rem, 5vw, 4rem);
     list-style-type: none;
-    margin: 0;
+    margin-block-start: 0;
+    margin-block-end: clamp(2rem, 5vw, 4rem);
     padding: 0;
+  }
+
+  .list ~ .list {
+    margin-block-start: clamp(2rem, 5vw, 4rem);
+  }
+
+  .section {
+    border-block: 1px solid rgba(var(--text-color), 0.5);
+    margin-block: clamp(1rem, 2.5vw, 2rem);
+    padding-block: clamp(1rem, 2.5vw, 2rem);
   }
 </style>

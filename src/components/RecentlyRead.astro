@@ -1,0 +1,48 @@
+---
+import list from '@/content/read-list/list.yaml';
+
+type Props = {
+  showTop?: number;
+};
+
+const { showTop = 5 } = Astro.props;
+---
+
+<aside class="aside">
+  <h2 class="heading">Recently read</h2>
+
+  <ul class="list">
+    {
+      list.slice(0, showTop).map((item) => (
+        <li>
+          <a href={item.url}>{item.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</aside>
+
+<style>
+  .aside {
+    @media (min-width: 48rem) {
+      display: grid;
+      grid-template-columns: 8rem 1fr;
+      column-gap: 4rem;
+    }
+  }
+
+  .heading {
+    font-size: var(--font-size-base);
+    font-weight: 400;
+    margin-block-start: 0;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style-type: none;
+    margin-block: 0;
+    padding-inline-start: 0;
+  }
+</style>

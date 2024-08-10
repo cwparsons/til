@@ -1,7 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+import yaml from '@rollup/plugin-yaml';
 
+import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
 import remarkToc from 'remark-toc';
@@ -39,4 +40,8 @@ export default defineConfig({
   integrations: [sitemap()],
 
   prefetch: true,
+
+  vite: {
+    plugins: [yaml()],
+  },
 });

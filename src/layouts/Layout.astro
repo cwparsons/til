@@ -1,6 +1,6 @@
 ---
 import BaseHead from '@/components/BaseHead.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '@/consts';
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_WORDMARK } from '@/consts';
 
 type Props = { description?: string; isRoot?: boolean; title?: string };
 
@@ -15,7 +15,7 @@ const { description, isRoot = false, title } = Astro.props;
   <body class="body">
     <header class="container">
       <a class="link" href="/til/">
-        {isRoot ? <h1 class="logo">{SITE_TITLE}</h1> : <span class="logo">{SITE_TITLE}</span>}
+        {isRoot ? <h1 class="logo">{SITE_WORDMARK}</h1> : <span class="logo">{SITE_WORDMARK}</span>}
       </a>
     </header>
 
@@ -59,6 +59,7 @@ const { description, isRoot = false, title } = Astro.props;
     font-weight: 600;
     line-height: 1;
     margin: 0;
+    text-transform: lowercase;
   }
 
   .container {

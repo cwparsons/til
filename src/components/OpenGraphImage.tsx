@@ -1,3 +1,4 @@
+import { SITE_TITLE } from '@/consts';
 import type { JSX } from 'astro/jsx-runtime';
 
 import fs from 'fs/promises';
@@ -31,7 +32,7 @@ export function OpenGraphImage({ title }: { title: string }) {
               fontSize: 32,
               fontWeight: 600,
             },
-            children: 'cwparsons.ca/TIL',
+            children: SITE_TITLE === title ? '' : 'cwparsons.ca/TIL',
           },
         },
         {

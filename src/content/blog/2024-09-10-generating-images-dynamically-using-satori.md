@@ -1,7 +1,7 @@
 ---
 title: Generating images dynamically using Satori
 description: Learnings around generating Open Graph images dynamically using Satori.
-pubDate: 2024-08-09
+pubDate: 2024-08-10
 tags: ['html', 'images']
 ---
 

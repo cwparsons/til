@@ -11,41 +11,39 @@ This is best added by creating PnP Modern Search [extensibility library](https:/
 
 It allows using a number of tokens, like `{searchTerms}`, `{inputQueryText}`, `{TenantUrl}`, `{Hub.HubSiteId}` and `{Today}`, and supports audience targeting.
 
-````typescript
+```html
+<pnp-search
+  query="test*"
+  row-limit="10"
+  select-properties="Title,Path,Description"
+  sort-direction="1"
+  sort-property="Created"
+  use-audience-targeting="true"
+>
+  <template>
+    <ul>
+      {{#each results}}
+      <li>
+        <a href="{{Path}}">{{Title}}</a>
+        {{#if Description}}
+        <p>{{Description}}</p>
+        {{/if}}
+      </li>
+      {{/each}}
+    </ul>
+  </template>
+</pnp-search>
+```
+
+Since the inner template uses Handlebars, if the web component is to be used within a Handlebars component, the inner template needs to be escaped using `{{{{raw}}}}` and `{{{{/raw}}}}`.
+
+```typescript
 import { SPHttpClient } from '@microsoft/sp-http';
 import { PageContext } from '@microsoft/sp-page-context';
 import { BaseWebComponent } from '@pnp/modern-search-extensibility';
 
 /**
  * A web component that can display its own search results using Handlebars.
- *
- * Usage:
- *
- * ```html
- * <pnp-search
- *    query="test*"
- *    row-limit="10"
- *    select-properties="Title,Path,Description"
- *    sort-direction="1"
- *    sort-property="Created"
- *    use-audience-targeting="true"
- * >
- *     <template>
- *        <ul>
- *        {{#each results}}
- *            <li>
- *                <a href="{{Path}}">{{Title}}</a>
- *                {{#if Description}}<p>{{Description}}</p>{{/if}}
- *            </li>
- *        {{/each}}
- *        </ul>
- *     </template>
- * </pnp-search>
- * ```
- *
- * Since the inner template uses Handlebars, if the web component is to be used
- * within a Handlebars component, the inner template needs to be escaped using
- * `{{{{raw}}}}` and `{{{{/raw}}}}`.
  */
 export class SearchWebComponent extends BaseWebComponent {
   private readonly DEFAULT_ROW_LIMIT = 10;
@@ -210,4 +208,4 @@ export class SearchWebComponent extends BaseWebComponent {
     return queryTemplate;
   }
 }
-````
+```

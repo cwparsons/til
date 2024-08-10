@@ -1,8 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
-import PostHeader from './PostHeader.astro';
 
-const posts = (await getCollection('blog')).sort(
+import PostHeader from '@/components/PostHeader.astro';
+
+const posts = (await getCollection('posts')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---

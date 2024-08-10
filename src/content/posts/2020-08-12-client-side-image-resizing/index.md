@@ -5,7 +5,7 @@ pubDate: 2020-08-12
 tags: ['project', 'react']
 ---
 
-![A screenshot of Habasizer](../images/2020-08-12-client-side-image-resizing.png)
+![A screenshot of Habasizer](1.png)
 
 This tool helps resize and crop basic images and provides a set of query string parameters to link to specific maximum widths and aspect ratios. It is meant to help content authors create specific sized imagery when their content management system may not provide cropping.
 

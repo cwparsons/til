@@ -1,8 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import PostHeader from './PostHeader.astro';
 
-type Props = CollectionEntry<'blog'>['data'] & { slug: string };
+import PostHeader from '@/components/PostHeader.astro';
+
+type Props = CollectionEntry<'posts'>['data'] & { slug: string };
 
 const { title, description, pubDate } = Astro.props;
 

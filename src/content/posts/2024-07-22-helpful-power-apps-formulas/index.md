@@ -75,7 +75,7 @@ IfError(
 
 When a Power Automate flow returns JSON back, use the following convention for the respond step, and then the following query in the app.
 
-![Screenshot of a Power Automate Flow with a response action](../images/2024-07-22-helpful-power-apps-formulas-1.png)
+![Screenshot of a Power Automate Flow with a response action](1.png)
 
 ```powerquery
 Table(ParseJSON('Power Automate Flow name').Run().json).value)

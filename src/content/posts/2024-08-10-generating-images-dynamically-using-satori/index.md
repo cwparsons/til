@@ -35,7 +35,7 @@ For this blog, I thought that the generated PNG text could look sharper and thou
 
 This comes from [meetingkickstarters.com](https://meetingkickstarters.com), where we dynamically generated an image for each kickstarter with it's illustration and title.
 
-![Sample of the Open Graph image for MeetingKickstarters.com](../images/2024-09-10-generating-images-dynamically-using-satori-3.png)
+![Sample of the Open Graph image for MeetingKickstarters.com](1.png)
 
 ### Code
 
@@ -146,7 +146,7 @@ export default async function Image({
 
 ## Open Graph example with Astro
 
-![Sample of the Open Graph image for this page](../images/2024-09-10-generating-images-dynamically-using-satori-2.png)
+![Sample of the Open Graph image for this page](2.png)
 
 ### Code
 
@@ -240,7 +240,7 @@ This is another example of an dynamically generated image, using other images an
 
 This uses [`resvg-js`](https://github.com/yisibl/resvg-js) to generate the image nad
 
-![Dynamically generated image](../images/2024-09-10-generating-images-dynamically-using-satori.png)
+![Dynamically generated image](3.png)
 
 ### Code
 

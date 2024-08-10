@@ -5,7 +5,7 @@ pubDate: 2023-10-15
 tags: ['personal', 'project', 'vue']
 ---
 
-![Screenshot of Nani Kana](../images/2023-10-15-nani-kana.png)
+![Screenshot of Nani Kana](1.png)
 
 I built this project for my adult Japanese class to help me learn hiragana and katakana, and also to get some basic experience with Vue. It's deployed to GitHub Pages.
 

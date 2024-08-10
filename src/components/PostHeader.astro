@@ -1,8 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import FormattedDate from './FormattedDate.astro';
 
-type Props = CollectionEntry<'blog'>['data'] & { slug: string; isLink?: boolean };
+import FormattedDate from '@/components/FormattedDate.astro';
+
+type Props = CollectionEntry<'posts'>['data'] & { slug: string; isLink?: boolean };
 
 const { isLink, title, pubDate, slug, tags } = Astro.props;
 ---
@@ -11,7 +12,7 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
   <FormattedDate date={pubDate} />
   {
     isLink ? (
-      <a href={`/til/${slug}/`}>
+      <a href={`/til/posts/${slug}/`}>
         <h2 class="h1 title">{title}</h2>
       </a>
     ) : (

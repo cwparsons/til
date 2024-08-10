@@ -2,10 +2,10 @@ import type { APIRoute } from 'astro';
 
 import { getCollection } from 'astro:content';
 
-import { PNG } from '../../components/OpenGraphImage';
+import { PNG } from '@/components/OpenGraphImage';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getCollection('posts');
 
   return posts.map((post) => ({
     params: { slug: post.slug },

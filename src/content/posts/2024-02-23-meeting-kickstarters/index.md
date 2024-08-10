@@ -22,7 +22,7 @@ Azure Static Web Apps have [mixed support](https://github.com/Azure/static-web-a
 
 DecapCMS was an easy and free way to allow content authors to make simple changes to the site. Since we already leverage Azure DevOps, [integrating with it was simple](https://decapcms.org/docs/azure-backend/) and we got single-sign on for free. This feature is thousands of dollars with other platforms.
 
-![Screenshot of DecapCMS with a Meeting Kickstarter page](../images/2024-02-23-meeting-kickstarters-1.png)
+![Screenshot of DecapCMS with a Meeting Kickstarter page](1.png)
 
 One pain with DecapCMS is that the live preview of the site within the tool requires using a client component. This prevents using server components within it, or in our case, using Node to dynamically get image dimensions.
 
@@ -30,7 +30,7 @@ One pain with DecapCMS is that the live preview of the site within the tool requ
 
 I leveraged [`react-aria`](https://react-spectrum.adobe.com/react-aria) to handle all of our interactive components. This made it a lot easier to deal with the accessibility concerns that interactions can have.
 
-![Screenshot of Meeting Kickstarters filtering component](../images/2024-02-23-meeting-kickstarters-2.png)
+![Screenshot of Meeting Kickstarters filtering component](2.png)
 
 ## Image optimization
 

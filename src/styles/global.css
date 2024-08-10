@@ -1,13 +1,20 @@
 :root {
   color-scheme: light dark;
-  --accent: 215, 58, 73;
+  --accent-color: 215, 58, 73;
   --background-color: 235, 235, 235;
-  --color: 25, 25, 25;
+  --text-color: 25, 25, 25;
+
+  --font-size-sm: clamp(0.8rem, 0.39vi + 0.7rem, 0.94rem);
+  --font-size-base: clamp(1rem, 0.71vi + 0.82rem, 1.25rem);
+  --font-size-md: clamp(1.25rem, 1.19vi + 0.95rem, 1.67rem);
+  --font-size-lg: clamp(1.56rem, 1.88vi + 1.09rem, 2.22rem);
+  --font-size-xl: clamp(1.95rem, 2.88vi + 1.23rem, 2.96rem);
+  --font-size-xxl: clamp(2.44rem, 4.3vi + 1.37rem, 3.95rem);
 
   @media (prefers-color-scheme: dark) {
-    --accent: 249, 117, 131;
+    --accent-color: 249, 117, 131;
     --background-color: 25, 25, 25;
-    --color: 235, 235, 235;
+    --text-color: 235, 235, 235;
   }
 }
 
@@ -24,73 +31,61 @@ body {
 
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
-  accent-color: rgb(var(--accent));
+  accent-color: rgb(var(--accent-color));
   background-color: rgb(var(--background-color));
-  color: rgb(var(--color));
+  color: rgb(var(--text-color));
   font-family: system-ui, sans-serif;
-  font-size: 1.25rem;
+  font-size: var(--font-size-base);
   line-height: 1.5;
   margin: 0;
   overflow-wrap: break-word;
   overflow-y: scroll;
   padding: 0;
-  text-align: left;
+  text-align: start;
   word-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background-color: rgba(var(--accent), 0.5);
+  background-color: rgba(var(--accent-color), 0.5);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-b,
-strong {
+:is(h1, h2, h3, h4, h5, h6, b, strong) {
   font-weight: 600;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+:is(h1, h2, h3, h4, h5, h6) {
+  margin-block: 1em;
   line-height: 1.2;
   text-wrap: balance;
 }
 
 h1,
 .h1 {
-  font-size: 2.5rem;
-  margin-block-end: 1rem;
+  font-size: var(--font-size-xl);
 }
 
 h2 {
-  font-size: 2rem;
-  margin-block-end: 1rem;
-  margin-block-start: 3rem;
+  font-size: var(--font-size-lg);
 }
 
 h3 {
-  font-size: 1.5rem;
-  margin-block-start: 2rem;
+  font-size: var(--font-size-md);
 }
 
-h4 {
-  font-size: 1.25rem;
-  margin-block-start: 1.5rem;
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-base);
 }
 
 a {
-  color: rgb(var(--color));
-  text-decoration-color: rgba(var(--color), 0.5);
+  color: rgb(var(--text-color));
+  text-decoration-color: rgba(var(--text-color), 0.5);
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
   text-decoration-skip: edges;
@@ -102,13 +97,22 @@ a {
 
   &:focus-visible,
   &:hover {
-    color: rgb(var(--accent));
-    text-decoration-color: rgba(var(--accent), 0.5);
+    color: rgb(var(--accent-color));
+    text-decoration-color: rgba(var(--accent-color), 0.5);
   }
 }
 
+:is(h1, h2, h3, h4, h5, h6) a {
+  text-decoration: none;
+}
+
 p {
-  margin-bottom: 1em;
+  margin-block: 1em;
+}
+
+ol,
+ul {
+  padding-inline-start: 1.25rem;
 }
 
 table {
@@ -129,9 +133,9 @@ time {
 
 code {
   padding: 0.25rem;
-  background-color: rgba(var(--accent), 0.15);
+  background-color: rgba(var(--accent-color), 0.15);
   border-radius: 2px;
-  font-size: 1.125rem;
+  font-size: var(--font-size-sm);
 }
 
 pre {
@@ -144,7 +148,7 @@ pre > code {
 }
 
 blockquote {
-  border-left: 0.25rem solid rgb(var(--accent));
+  border-inline-start: 0.25rem solid rgb(var(--accent-color));
   padding: 0;
   padding-inline-start: 1.5rem;
   margin: 0;
@@ -152,12 +156,8 @@ blockquote {
 }
 
 hr {
-  border: none;
-  border-block-start: 1px solid rgb(var(--color));
-}
-
-.astro-code,
-.astro-code span {
+  border-block-start: 1px solid rgb(var(--text-color));
+  border-block-end: none;
 }
 
 .astro-code {
@@ -166,7 +166,7 @@ hr {
 
   &,
   span {
-    font-size: 0.825rem;
+    font-size: var(--font-size-sm);
 
     @media (prefers-color-scheme: dark) {
       color: var(--shiki-dark) !important;
@@ -183,8 +183,8 @@ hr {
   content: counter(step);
   counter-increment: step;
   width: 1rem;
-  margin-right: 1.5rem;
+  margin-inline-end: 1.5rem;
   display: inline-block;
-  text-align: right;
-  color: rgb(var(--color), 0.5);
+  text-align: end;
+  color: rgb(var(--text-color), 0.5);
 }

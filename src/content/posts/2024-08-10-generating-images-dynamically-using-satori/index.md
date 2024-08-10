@@ -7,6 +7,8 @@ tags: ['html', 'images']
 
 Open Graph images are used by messaging apps and social media sites to show a preview of the content of a page. Creating these graphics with dynamic metadata would be a chore to do manually, but luckily there are a lot of resources out there to build them.
 
+## Contents
+
 ## Satori
 
 [Satori](https://github.com/vercel/satori) is a tool that takes JSX and converts it into an SVG. It doesn't support every CSS property unfortunately, but is an easy way for a front-end developer to make images.
@@ -37,7 +39,7 @@ This comes from [meetingkickstarters.com](https://meetingkickstarters.com), wher
 
 ![Sample of the Open Graph image for MeetingKickstarters.com](1.png)
 
-### Code
+### Next.js code
 
 ```typescript
 /* eslint-disable @next/next/no-img-element */
@@ -148,7 +150,7 @@ export default async function Image({
 
 ![Sample of the Open Graph image for this page](2.png)
 
-### Code
+### Astro code
 
 ```typescript
 import type { JSX } from 'astro/jsx-runtime';
@@ -242,7 +244,7 @@ This uses [`resvg-js`](https://github.com/yisibl/resvg-js) to generate the image
 
 ![Dynamically generated image](3.png)
 
-### Code
+### Node code
 
 ```typescript
 import { readFile } from "node:fs/promises";

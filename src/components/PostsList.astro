@@ -24,7 +24,7 @@ const posts = (await getCollection('posts')).sort(
   .list {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: clamp(2rem, 5vw, 4rem);
     list-style-type: none;
     margin: 0;
     padding: 0;

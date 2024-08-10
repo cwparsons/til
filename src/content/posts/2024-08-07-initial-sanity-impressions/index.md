@@ -5,6 +5,7 @@ pubDate: 2024-08-07
 tags: ['sanity', 'next']
 ---
 
+> [!NOTE]
 > This content is still a work-in-progress.
 
 My workplace has been a Sitecore partner for many years, and while we still enjoy their product and look forward to using XM Cloud, it's overall licensing is too much for smaller customers. I've been exploring different options and have been impressed with Sanity so far. We plan on using it with Next.js.

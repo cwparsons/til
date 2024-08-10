@@ -30,6 +30,7 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
       display: grid;
       grid-template-columns: 8rem 1fr;
       column-gap: 4rem;
+      row-gap: 1rem;
     }
 
     > *:first-child {
@@ -38,7 +39,7 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
   }
 
   .title {
-    margin-block-start: 0;
+    margin-block: 0;
   }
 
   .tag-list {

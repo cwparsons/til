@@ -33,7 +33,7 @@ tags: ['sitecore']
 
 2. Create a new _Condition_ under
 
-   ```
+   ```text
    /sitecore/system/Settings/Rules/Definitions/Elements
    ```
 

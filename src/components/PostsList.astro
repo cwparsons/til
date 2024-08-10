@@ -1,11 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
 
+type Props = { tag?: string };
+
 import PostHeader from '@/components/PostHeader.astro';
 
-const posts = (await getCollection('posts')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const { tag } = Astro.props;
+
+const posts = (await getCollection('posts'))
+  .filter((t) => !tag || t.data.tags.includes(tag))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <nav>

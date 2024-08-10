@@ -31,11 +31,12 @@ const structuredData = {
   @keyframes fadeInUp {
     0% {
       opacity: 0;
-      transform: translateY(20px); /* Start slightly below the final position */
+      transform: translateY(1.5rem);
     }
+
     100% {
       opacity: 1;
-      transform: translateY(0); /* End at the final position */
+      transform: translateY(0);
     }
   }
 
@@ -43,7 +44,6 @@ const structuredData = {
     @media not (prefers-reduced-motion) {
       opacity: 0;
       animation: fadeInUp 0.25s ease-out forwards;
-      /* animation-delay: 0.25s; */
     }
 
     @media (min-width: 48rem) {

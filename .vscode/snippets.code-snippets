@@ -3,10 +3,10 @@
     "prefix": "frontmatter",
     "body": [
       "---",
-      "title: ''",
-      "description: ''",
-      "pubDate: ",
-      "tags: []",
+      "title: $1",
+      "description: $2",
+      "pubDate: $3",
+      "tags: ['$4']",
       "---"
     ],
     "scope": "markdown",

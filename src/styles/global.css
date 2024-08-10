@@ -2,20 +2,20 @@
   color-scheme: light dark;
   --accent-color: 215, 58, 73;
   --background-color: 235, 235, 235;
-  --background-accent-color: 255 255 255;
+  --background-accent-color: 255, 255, 255;
   --text-color: 25, 25, 25;
 
-  --font-size-sm: clamp(0.8rem, 0.39vi + 0.7rem, 0.94rem);
-  --font-size-base: clamp(1rem, 0.71vi + 0.82rem, 1.25rem);
-  --font-size-md: clamp(1.25rem, 1.19vi + 0.95rem, 1.67rem);
-  --font-size-lg: clamp(1.56rem, 1.88vi + 1.09rem, 2.22rem);
-  --font-size-xl: clamp(1.95rem, 2.88vi + 1.23rem, 2.96rem);
-  --font-size-xxl: clamp(2.44rem, 4.3vi + 1.37rem, 3.95rem);
+  --font-size-sm: clamp(0.825rem, 0.39vi + 0.75rem, 1em);
+  --font-size-base: clamp(1rem, 0.71vi + 0.825rem, 1.25rem);
+  --font-size-md: clamp(1.25rem, 1.19vi + 1rem, 1.75rem);
+  --font-size-lg: clamp(1.5rem, 1.88vi + 1rem, 2.25rem);
+  --font-size-xl: clamp(2rem, 2.88vi + 1.25rem, 3rem);
+  --font-size-xxl: clamp(2.5rem, 4.3vi + 1.375rem, 4rem);
 
   @media (prefers-color-scheme: dark) {
     --accent-color: 249, 117, 131;
     --background-color: 25, 25, 25;
-    --background-accent-color: 36 41 46;
+    --background-accent-color: 36, 41, 46;
     --text-color: 235, 235, 235;
   }
 }

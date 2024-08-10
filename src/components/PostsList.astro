@@ -28,9 +28,7 @@ const posts = (await getCollection('posts'))
 {
   !tag && (
     <>
-      <div class="section">
-        <RecentlyRead />
-      </div>
+      <RecentlyRead />
 
       <ul class="list">
         {posts.slice(showTop).map((post) => (
@@ -45,22 +43,18 @@ const posts = (await getCollection('posts'))
 
 <style>
   .list {
+    --gap: clamp(2rem, 5vw, 4rem);
+
     display: flex;
     flex-direction: column;
-    gap: clamp(2rem, 5vw, 4rem);
+    gap: var(--gap);
     list-style-type: none;
     margin-block-start: 0;
-    margin-block-end: clamp(2rem, 5vw, 4rem);
+    margin-block-end: var(--gap);
     padding: 0;
   }
 
   .list ~ .list {
-    margin-block-start: clamp(2rem, 5vw, 4rem);
-  }
-
-  .section {
-    border-block: 1px solid rgba(var(--text-color), 0.5);
-    margin-block: clamp(1rem, 2.5vw, 2rem);
-    padding-block: clamp(1rem, 2.5vw, 2rem);
+    margin-block-start: var(--gap);
   }
 </style>

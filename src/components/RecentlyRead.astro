@@ -24,6 +24,12 @@ const { showTop = 5 } = Astro.props;
 
 <style>
   .aside {
+    background-color: rgb(var(--background-accent-color));
+    border-radius: 0.5rem;
+    margin-block: clamp(1rem, 2.5vw, 2rem);
+    margin-inline: calc(-1 * clamp(1rem, 2.5vw, 2rem));
+    padding: clamp(1rem, 2.5vw, 2rem);
+
     @media (min-width: 48rem) {
       display: grid;
       grid-template-columns: 8rem 1fr;
@@ -33,8 +39,12 @@ const { showTop = 5 } = Astro.props;
 
   .heading {
     font-size: var(--font-size-base);
-    font-weight: 400;
+    font-weight: 600;
     margin-block-start: 0;
+
+    @media (min-width: 48rem) {
+      font-weight: 400;
+    }
   }
 
   .list {

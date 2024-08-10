@@ -5,7 +5,7 @@
   --background-accent-color: 255, 255, 255;
   --text-color: 25, 25, 25;
 
-  --font-size-sm: clamp(0.825rem, 0.39vi + 0.75rem, 1em);
+  --font-size-sm: clamp(0.825rem, 0.39vi + 0.75rem, 1rem);
   --font-size-base: clamp(1rem, 0.71vi + 0.825rem, 1.25rem);
   --font-size-md: clamp(1.25rem, 1.19vi + 1rem, 1.75rem);
   --font-size-lg: clamp(1.5rem, 1.88vi + 1rem, 2.25rem);

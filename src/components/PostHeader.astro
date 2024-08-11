@@ -12,7 +12,7 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
   <FormattedDate date={pubDate} />
   {
     isLink ? (
-      <a href={`/til/posts/${slug}/`}>
+      <a href={`/posts/${slug}/`}>
         <h2 class="h1 title">{title}</h2>
       </a>
     ) : (
@@ -23,7 +23,7 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
     {
       tags.sort().map((t) => (
         <li>
-          <a href={`/til/tags/${t}/`}>#{t}</a>
+          <a href={`/tags/${t}/`}>#{t}</a>
         </li>
       ))
     }

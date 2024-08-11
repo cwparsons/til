@@ -12,8 +12,6 @@ import remarkSmartypants from 'remark-smartypants';
 export default defineConfig({
   site: 'https://cwparsons.ca',
 
-  base: '/til',
-
   markdown: {
     rehypePlugins: [rehypeHeadingIds, [rehypeAutolinkHeadings, { behavior: 'wrap' }]],
 

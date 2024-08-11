@@ -132,11 +132,6 @@ video {
   border-radius: 8px;
 }
 
-time {
-  display: inline-block;
-  margin-block-start: 0.5rem;
-}
-
 code {
   padding: 0.25rem;
   background-color: rgba(var(--accent-color), 0.15);

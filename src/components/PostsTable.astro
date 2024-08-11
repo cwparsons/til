@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+
+import FormattedDate from '@/components/FormattedDate.astro';
+
+const posts = (await getCollection('posts'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+---
+
+<table>
+  <thead>
+    <tr>
+      <th class="th cell">Publish date</th>
+      <th class="th cell">Title</th>
+      <th class="th cell">Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      posts.map((post) => (
+        <tr>
+          <td class="td cell nowrap"><FormattedDate date={post.data.pubDate} /></td>
+          <td class="td cell"><a href={`/posts/${post.slug}`}>{post.data.title}</a></td>
+          <td class="td cell">{post.data.tags.join(', ')}</td>
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
+
+<style>
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  .th {
+    text-align: start;
+  }
+
+  .cell {
+    padding: 0.5rem;
+    vertical-align: top;
+  }
+</style>

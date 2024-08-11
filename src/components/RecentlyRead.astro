@@ -2,10 +2,10 @@
 import list from '@/content/recently-read/list.yml';
 
 type Props = {
-  showTop?: number;
+  top?: number;
 };
 
-const { showTop = 5 } = Astro.props;
+const { top = 5 } = Astro.props;
 ---
 
 <aside class="aside">
@@ -13,7 +13,7 @@ const { showTop = 5 } = Astro.props;
 
   <ul class="list">
     {
-      list.slice(0, showTop).map((item) => (
+      list.slice(0, top).map((item) => (
         <li>
           <a href={item.url}>{item.title ?? item.url}</a>
         </li>

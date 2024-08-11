@@ -2,7 +2,7 @@
 title: Generating images dynamically using Satori
 description: Learnings around generating Open Graph images dynamically using Satori.
 pubDate: 2024-08-10
-tags: ['html-css', 'images']
+tags: ['images']
 ---
 
 Open Graph images are used by messaging apps and social media sites to show a preview of the content of a page. Creating these graphics with dynamic metadata would be a chore to do manually, but luckily there are a lot of resources out there to build them.

@@ -9,7 +9,10 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
 ---
 
 <div class="header" style={`view-transition-name: post-${slug};`}>
-  <FormattedDate date={pubDate} />
+  <div class="time">
+    <FormattedDate date={pubDate} />
+  </div>
+
   {
     isLink ? (
       <a href={`/posts/${slug}/`}>
@@ -19,6 +22,7 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
       <h1 class="h1 title">{title}</h1>
     )
   }
+
   <ul class="tag-list">
     {
       tags.sort().map((t) => (
@@ -42,6 +46,11 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
     > *:first-child {
       grid-row: span 2 / span 2;
     }
+  }
+
+  .time {
+    display: inline-block;
+    margin-block-start: 0.5rem;
   }
 
   .title {

@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+
+type Props = { slug: string; tags: string[]; top?: number; };
+
+import PostHeader from '@/components/PostHeader.astro';
+
+const { slug, tags, top = 3 } = Astro.props;
+
+const posts = (await getCollection('posts'))
+  .filter((p) => p.data.tags.some((t) => tags.includes(t)))
+  .filter((p) => p.slug !== slug)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, top);
+---
+
+{
+  posts.length > 0 &&
+  <>
+    <h2 class="heading">Related posts</h2>
+
+    <ul class="list">
+      {
+        posts.map((post) => (
+          <li>
+            <PostHeader isLink={true} slug={post.slug} {...post.data} />
+          </li>
+        ))
+      }
+    </ul>
+  </>
+}
+
+<style>
+  .heading {
+    margin-block-start: clamp(4rem, 10vw, 10rem);
+  }
+
+  .list {
+    --gap: clamp(2rem, 5vw, 4rem);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: var(--gap);
+    padding: 0;
+  }
+
+  .list ~ .list {
+    margin-block-start: var(--gap);
+  }
+</style>

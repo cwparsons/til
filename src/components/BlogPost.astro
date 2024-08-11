@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 
 import PostHeader from '@/components/PostHeader.astro';
+import RelatedPosts from '@/components/RelatedPosts.astro';
 
 type Props = CollectionEntry<'posts'>['data'] & { slug: string };
 
@@ -26,6 +27,8 @@ const structuredData = {
     <slot />
   </div>
 </article>
+
+<RelatedPosts slug={Astro.props.slug} tags={Astro.props.tags} />
 
 <style>
   @keyframes fadeInUp {

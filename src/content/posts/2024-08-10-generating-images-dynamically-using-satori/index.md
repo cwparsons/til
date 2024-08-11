@@ -186,7 +186,7 @@ export function OpenGraphImage({ title }: { title: string }) {
               fontSize: 32,
               fontWeight: 600,
             },
-            children: 'cwparsons.ca/TIL',
+            children: 'cwparsons.ca',
           },
         },
         {

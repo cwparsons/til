@@ -2,7 +2,7 @@
   "name": "til",
   "type": "module",
   "version": "0.0.1",
-  "homepage": "https://cwparsons.ca/til",
+  "homepage": "https://cwparsons.ca",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

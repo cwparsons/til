@@ -32,7 +32,7 @@ export function OpenGraphImage({ title }: { title: string }) {
               fontSize: 32,
               fontWeight: 600,
             },
-            children: SITE_TITLE === title ? '' : 'cwparsons.ca/TIL',
+            children: SITE_TITLE === title ? '' : 'cwparsons.ca',
           },
         },
         {

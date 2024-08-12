@@ -5,6 +5,8 @@
     "paths": {
       "@/*": ["src/*"]
     },
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "strictNullChecks": true
   }
 }

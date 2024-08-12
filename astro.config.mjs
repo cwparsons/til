@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import yaml from '@rollup/plugin-yaml';
+import pagefind from 'astro-pagefind';
 
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -35,7 +36,7 @@ export default defineConfig({
     },
   },
 
-  integrations: [sitemap()],
+  integrations: [pagefind(), sitemap()],
 
   prefetch: true,
 

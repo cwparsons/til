@@ -9,7 +9,7 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
 ---
 
 <div class="header" style={`view-transition-name: post-${slug};`}>
-  <div class="time">
+  <div class="time" data-pagefind-ignore>
     <FormattedDate date={pubDate} />
   </div>
 
@@ -23,7 +23,7 @@ const { isLink, title, pubDate, slug, tags } = Astro.props;
     )
   }
 
-  <ul class="tag-list">
+  <ul class="tag-list" data-pagefind-ignore>
     {
       tags.sort().map((t) => (
         <li>

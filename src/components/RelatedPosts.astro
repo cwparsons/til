@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 
-type Props = { slug: string; tags: string[]; top?: number; };
+type Props = { slug: string; tags: string[]; top?: number };
 
 import PostHeader from '@/components/PostHeader.astro';
 
@@ -15,20 +15,19 @@ const posts = (await getCollection('posts'))
 ---
 
 {
-  posts.length > 0 &&
-  <>
-    <h2 class="heading">Related posts</h2>
+  posts.length > 0 && (
+    <>
+      <h2 class="heading">Related posts</h2>
 
-    <ul class="list">
-      {
-        posts.map((post) => (
+      <ul class="list">
+        {posts.map((post) => (
           <li>
             <PostHeader isLink={true} slug={post.slug} {...post.data} />
           </li>
-        ))
-      }
-    </ul>
-  </>
+        ))}
+      </ul>
+    </>
+  )
 }
 
 <style>

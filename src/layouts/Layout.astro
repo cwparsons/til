@@ -14,19 +14,21 @@ const { description, isRoot = false, title } = Astro.props;
   </head>
   <body class="body">
     <header class="container header">
-      <a class="link" href="/">
+      <a class="home-link" href="/">
         {isRoot ? <h1 class="logo">{SITE_WORDMARK}</h1> : <span class="logo">{SITE_WORDMARK}</span>}
       </a>
 
-      <div class="social-media">
+      <div class="links">
+        <a aria-label="Search page" href="/search">
+          <svg aria-hidden="true" fill="currentcolor" height="30" viewBox="0 0 50 50" width="30">
+            <path
+              d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"
+            ></path>
+          </svg>
+        </a>
+
         <a aria-label="cwparsons' LinkedIn profile" href="https://www.linkedin.com/in/cwlparsons/">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            width="32"
-            height="32"
-          >
+          <svg aria-hidden="true" fill="currentColor" height="32" viewBox="0 0 24 24" width="32">
             <path
               d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
             ></path>
@@ -34,22 +36,15 @@ const { description, isRoot = false, title } = Astro.props;
         </a>
 
         <a aria-label="cwparsons' GitHub profile" href="https://github.com/cwparsons">
-          <svg height="30" aria-hidden="true" viewBox="0 0 24 24" width="30">
+          <svg aria-hidden="true" fill="currentColor" height="30" viewBox="0 0 24 24" width="30">
             <path
-              fill="currentColor"
               d="M12.5.75C6.146.75 1 5.896 1 12.25c0 5.089 3.292 9.387 7.863 10.91.575.101.79-.244.79-.546 0-.273-.014-1.178-.014-2.142-2.889.532-3.636-.704-3.866-1.35-.13-.331-.69-1.352-1.18-1.625-.402-.216-.977-.748-.014-.762.906-.014 1.553.834 1.769 1.179 1.035 1.74 2.688 1.25 3.349.948.1-.747.402-1.25.733-1.538-2.559-.287-5.232-1.279-5.232-5.678 0-1.25.445-2.285 1.178-3.09-.115-.288-.517-1.467.115-3.048 0 0 .963-.302 3.163 1.179.92-.259 1.897-.388 2.875-.388.977 0 1.955.13 2.875.388 2.2-1.495 3.162-1.179 3.162-1.179.633 1.581.23 2.76.115 3.048.733.805 1.179 1.825 1.179 3.09 0 4.413-2.688 5.39-5.247 5.678.417.36.776 1.05.776 2.128 0 1.538-.014 2.774-.014 3.162 0 .302.216.662.79.547C20.709 21.637 24 17.324 24 12.25 24 5.896 18.854.75 12.5.75Z"
             ></path>
           </svg>
         </a>
 
         <a aria-label="cwparsons' Last.fm profile" href="https://www.last.fm/user/Whtlw">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-          >
+          <svg aria-hidden="true" fill="currentColor" height="32" viewBox="0 0 32 32" width="32">
             <path
               d="M14.131 22.948l-1.172-3.193c0 0-1.912 2.131-4.771 2.131-2.537 0-4.333-2.203-4.333-5.729 0-4.511 2.276-6.125 4.515-6.125 3.224 0 4.245 2.089 5.125 4.772l1.161 3.667c1.161 3.561 3.365 6.421 9.713 6.421 4.548 0 7.631-1.391 7.631-5.068 0-2.968-1.697-4.511-4.844-5.244l-2.344-0.511c-1.624-0.371-2.104-1.032-2.104-2.131 0-1.249 0.985-1.984 2.604-1.984 1.767 0 2.704 0.661 2.865 2.24l3.661-0.444c-0.297-3.301-2.584-4.656-6.323-4.656-3.308 0-6.532 1.251-6.532 5.245 0 2.5 1.204 4.077 4.245 4.807l2.484 0.589c1.865 0.443 2.484 1.224 2.484 2.287 0 1.359-1.323 1.921-3.828 1.921-3.703 0-5.244-1.943-6.124-4.625l-1.204-3.667c-1.541-4.765-4.005-6.531-8.891-6.531-5.287-0.016-8.151 3.385-8.151 9.192 0 5.573 2.864 8.595 8.005 8.595 4.14 0 6.125-1.943 6.125-1.943z"
             ></path>
@@ -83,7 +78,7 @@ const { description, isRoot = false, title } = Astro.props;
     margin-block-end: 2rem;
   }
 
-  .link {
+  .home-link {
     display: block;
     width: max-content;
   }
@@ -97,7 +92,7 @@ const { description, isRoot = false, title } = Astro.props;
     text-transform: lowercase;
   }
 
-  .social-media {
+  .links {
     display: flex;
     gap: 1.5rem;
 

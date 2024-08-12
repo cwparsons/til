@@ -4,6 +4,16 @@
   --background-color: 235, 235, 235;
   --background-accent-color: 255, 255, 255;
   --text-color: 25, 25, 25;
+  --font-family: system-ui, sans-serif;
+
+  --pagefind-ui-font: var(--font-family);
+  --pagefind-ui-scale: 1.2;
+  --pagefind-ui-border-radius: 0.5rem;
+  --pagefind-ui-primary: rgb(var(--text-color));
+  --pagefind-ui-text: rgb(var(--text-color));
+  --pagefind-ui-background: rgb(var(--background-color));
+  --pagefind-ui-border: rgb(var(--background-color));
+  --pagefind-ui-tag: rgb(var(--background-color));
 
   --font-size-sm: clamp(0.825rem, 0.39vi + 0.75rem, 1rem);
   --font-size-base: clamp(1rem, 0.71vi + 0.825rem, 1.25rem);
@@ -40,7 +50,7 @@ body {
   accent-color: rgb(var(--accent-color));
   background-color: rgb(var(--background-color));
   color: rgb(var(--text-color));
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-family);
   font-size: var(--font-size-base);
   line-height: 1.5;
   margin: 0;
@@ -137,6 +147,12 @@ code {
   background-color: rgba(var(--accent-color), 0.15);
   border-radius: 2px;
   font-size: var(--font-size-sm);
+}
+
+mark,
+.pagefind-ui--reset mark {
+  background-color: rgba(var(--accent-color), 0.5);
+  color: rgb(var(--text-color));
 }
 
 pre {

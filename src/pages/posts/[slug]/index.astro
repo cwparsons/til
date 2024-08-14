@@ -20,7 +20,7 @@ const post = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout title={`${post.data.title} - ${SITE_TITLE}`}>
+<Layout title={`${post.data.title} - ${SITE_TITLE}`} description={post.data.description}>
   <BlogPost slug={post.slug} {...post.data}>
     <Content />
   </BlogPost>

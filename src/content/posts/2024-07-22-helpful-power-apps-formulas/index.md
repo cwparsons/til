@@ -2,7 +2,7 @@
 title: 'Helpful Power Apps formulas'
 description: A list of formulas for using within Microsoft's Power Apps.
 pubDate: 2024-07-22
-tags: ['power-apps']
+tags: ['power-platform']
 ---
 
 ## Error handling

@@ -2,7 +2,7 @@
 title: Power Apps text width formulas
 description: A list of formulas for generating widths for text.
 pubDate: 2024-07-01
-tags: ['power-apps']
+tags: ['power-platform']
 ---
 
 Inspired by this [Reddit post](https://www.reddit.com/r/PowerApps/comments/yci4vl/formula_created_for_dynamic_width_label_or_any/?rdt=54535), this CodePen creates formulas that can be used to determine text widths based on the content of a text component in Power Apps. It uses JavaScript to inspect the width of every character and then generates a formula that groups these characters.

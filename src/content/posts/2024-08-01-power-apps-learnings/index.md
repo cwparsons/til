@@ -2,7 +2,7 @@
 title: 'Power Apps learnings'
 description: A list of stuff learned around using Microsoft's Power Apps.
 pubDate: 2024-08-01
-tags: ['power-apps']
+tags: ['power-platform']
 ---
 
 ## Project evolution

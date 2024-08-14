@@ -12,7 +12,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "4.13.2",
+    "astro": "4.13.3",
     "astro-pagefind": "1.6.0"
   },
   "devDependencies": {

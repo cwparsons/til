@@ -9,36 +9,51 @@ import remarkToc from 'remark-toc';
 import remarkSmartypants from 'remark-smartypants';
 
 // @see https://astro.build/config
-import mdx from "@astrojs/mdx";
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://cwparsons.ca',
   markdown: {
-    rehypePlugins: [rehypeHeadingIds, [rehypeAutolinkHeadings, {
-      behavior: 'wrap'
-    }]],
-    remarkPlugins: [remarkGfm, [remarkToc, {
-      maxDepth: 2
-    }], remarkSmartypants],
+    rehypePlugins: [
+      rehypeHeadingIds,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'wrap',
+        },
+      ],
+    ],
+    remarkPlugins: [
+      remarkGfm,
+      [
+        remarkToc,
+        {
+          maxDepth: 2,
+        },
+      ],
+      remarkSmartypants,
+    ],
     shikiConfig: {
       themes: {
         dark: 'github-dark',
-        light: 'github-light'
+        light: 'github-light',
       },
-      transformers: [{
-        preprocess(code) {
-          if (code.endsWith('\n')) {
-            code = code.slice(0, -1);
-          }
-          return code;
-        }
-      }]
-    }
+      transformers: [
+        {
+          preprocess(code) {
+            if (code.endsWith('\n')) {
+              code = code.slice(0, -1);
+            }
+            return code;
+          },
+        },
+      ],
+    },
   },
   integrations: [pagefind(), sitemap(), mdx()],
-  prefetch: true,
+  prefetch: false,
   vite: {
-    plugins: [yaml()]
-  }
+    plugins: [yaml()],
+  },
 });

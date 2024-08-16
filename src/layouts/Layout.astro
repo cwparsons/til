@@ -15,7 +15,17 @@ const { description, isRoot = false, title } = Astro.props;
   <body class="body">
     <header class="container header">
       <a class="home-link" href="/">
-        {isRoot ? <h1 class="logo">{SITE_WORDMARK}</h1> : <span class="logo">{SITE_WORDMARK}</span>}
+        {
+          isRoot ? (
+            <h1 class="logo">
+              <span aria-hidden="true">�</span> {SITE_WORDMARK}
+            </h1>
+          ) : (
+            <span class="logo">
+              <span aria-hidden="true">�</span> {SITE_WORDMARK}
+            </span>
+          )
+        }
       </a>
 
       <div class="links">

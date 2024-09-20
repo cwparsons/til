@@ -1,3 +1,9 @@
+- url: https://nolanlawson.com/2024/09/18/improving-rendering-performance-with-css-content-visibility/
+  title: Improving rendering performance with CSS content-visibility - Nolan Lawson - Read the Tea Leaves
+  tags:
+    - html
+    - css
+
 - url: https://ryanmulligan.dev/blog/css-property-new-style/
   title: CSS @property and the New Style - ryanmulligan.dev
   tags:
@@ -16,7 +22,7 @@
     - html
 
 - url: https://frontendmasters.com/blog/figma-typography-variables/
-  title: Figma Typography Variables - Frontend Masters Boost
+  title: Figma Typography Variables - Steve Kinney - Frontend Masters Boost
   tags:
     - css
     - figma

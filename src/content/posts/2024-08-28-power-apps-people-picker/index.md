@@ -7,7 +7,7 @@ tags: ['power-platform']
 
 This people picker is inspired by posts like [How to Create a People Picker in Power Apps](https://www.tekki-gurus.com/how-to-create-people-picker-power-apps/). If you have the ability to use the [PeoplePicker control](https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/peoplepicker) from the [Creator Kit](https://learn.microsoft.com/en-us/power-platform/guidance/creator-kit/overview), use that instead.
 
-This control requires using the `Office365Users` connector, and is styled to look like a modern combobox (while is actually a classic combobox). Using a modern combobox is not possible, due to the items not appearing during the search experience.
+This control requires using the `Office365Users` connector, and is styled to look like a modern combobox (while is actually a classic combobox). It filters out external guests and disabled users. Using a modern combobox is not possible, due to the items not appearing during the search experience.
 
 ```yaml
 - cb_PeoplePicker:
@@ -17,7 +17,16 @@ This control requires using the `Office365Users` connector, and is styled to loo
       DisplayFields: =["DisplayName","Mail"]
       InputTextPlaceholder: ="Search for a person"
       Items: |-
-        =Office365Users.SearchUserV2({searchTerm: Trim(Self.SearchText), isSearchTermRequired: true}).value
+        =Filter(
+            Office365Users.SearchUserV2(
+                {
+                    searchTerm: Trim(Self.SearchText),
+                    isSearchTermRequired: true
+                }
+            ).value,
+            Not("#EXT#" in UserPrincipalName),
+            AccountEnabled
+        )
       SearchFields: =["DisplayName","Mail"]
       BorderColor: =Color.Transparent
       BorderThickness: =0

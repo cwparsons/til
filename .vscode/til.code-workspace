@@ -1,0 +1,11 @@
+{
+  "folders": [
+    {
+      "name": "content",
+      "path": "../src/content",
+    },
+  ],
+  "settings": {
+    "explorer.sortOrderReverse": true,
+  },
+}

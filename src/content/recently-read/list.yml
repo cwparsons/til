@@ -1,3 +1,13 @@
+- url: https://blog.stephaniestimac.com/posts/2024/10/html-details-and-summary-update/
+  title: The `<details>` and `<summary>` elements are getting an upgrade - Stephanie Stimac's Blog
+  tags:
+    - html
+
+- url: https://2024.stateofcss.com/en-US
+  title: State of CSS 2024
+  tags:
+    - css
+
 - url: https://nolanlawson.com/2024/09/18/improving-rendering-performance-with-css-content-visibility/
   title: Improving rendering performance with CSS content-visibility - Nolan Lawson - Read the Tea Leaves
   tags:

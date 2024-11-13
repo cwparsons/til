@@ -1,7 +1,7 @@
 ---
 title: 'spfx-azure-pipeline'
 description: 'Sample Azure Pipeline for building SharePoint Framework (SPFx) packages.'
-pubDate: 2024-11-04
+pubDate: 2024-11-13
 tags: ['project', 'sharepoint-spfx', 'azure-pipeline']
 ---
 

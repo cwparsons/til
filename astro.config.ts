@@ -1,15 +1,14 @@
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import yaml from '@rollup/plugin-yaml';
 import pagefind from 'astro-pagefind';
 import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+import playformCompress from '@playform/compress';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
 import remarkToc from 'remark-toc';
 import remarkSmartypants from 'remark-smartypants';
-
-// @see https://astro.build/config
-import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
@@ -32,6 +31,7 @@ export default defineConfig({
           maxDepth: 2,
         },
       ],
+      // @ts-ignore
       remarkSmartypants,
     ],
     shikiConfig: {
@@ -51,7 +51,7 @@ export default defineConfig({
       ],
     },
   },
-  integrations: [pagefind(), sitemap(), mdx()],
+  integrations: [pagefind(), sitemap(), mdx(), playformCompress()],
   prefetch: false,
   vite: {
     plugins: [yaml()],

@@ -51,7 +51,14 @@ export default defineConfig({
       ],
     },
   },
-  integrations: [pagefind(), sitemap(), mdx(), playformCompress()],
+  integrations: [
+    pagefind(),
+    sitemap(),
+    mdx(),
+    playformCompress({
+      HTML: false,
+    }),
+  ],
   prefetch: false,
   vite: {
     plugins: [yaml()],

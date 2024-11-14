@@ -112,10 +112,14 @@ const { description, isRoot = false, title } = Astro.props;
   }
 
   .container {
+    --padding: 2rem;
+
+    box-sizing: border-box;
     margin-inline: auto;
     margin-block-start: clamp(2rem, 6vw, 4rem);
-    max-width: 60rem;
-    width: calc(100vw - 2rem);
+    max-width: 100%;
+    padding-inline: var(--padding);
+    width: 60rem;
   }
 
   .main {

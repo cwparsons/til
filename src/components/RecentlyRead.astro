@@ -26,8 +26,8 @@ const { top = 5 } = Astro.props;
   .aside {
     background-color: rgb(var(--background-accent-color));
     margin-block: clamp(1rem, 2.5vw, 2rem);
-    margin-inline: calc(-1 * clamp(1rem, 2.5vw, 2rem));
-    padding: clamp(1rem, 2.5vw, 2rem);
+    margin-inline: calc(-1 * var(--padding));
+    padding: var(--padding);
 
     @media (min-width: 48rem) {
       border-radius: 0.5rem;

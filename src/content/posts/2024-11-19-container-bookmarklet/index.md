@@ -13,7 +13,6 @@ This bookmarklet outlines containers and shows their size to help test designs. 
 
 ```javascript
 javascript:(() => {
-    // Style for the outlines and size display
     const style = document.createElement('style');
     style.textContent = `
         .container-outline {
@@ -35,12 +34,9 @@ javascript:(() => {
     `;
     document.head.appendChild(style);
 
-    // Function to create outlines
     const updateOutlines = () => {
-        // Remove existing outlines
         document.querySelectorAll('.container-outline').forEach((el) => el.remove());
 
-        // Create outlines for each container element
         document.querySelectorAll('body *:not(script):not(link)').forEach((el) => {
             const { containerType } = getComputedStyle(el);
 

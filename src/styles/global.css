@@ -160,7 +160,7 @@ pre {
   border-radius: 0.5rem;
 }
 
-pre > code {
+pre>code {
   all: unset;
 }
 
@@ -205,3 +205,19 @@ hr {
   text-align: end;
   color: rgb(var(--text-color), 0.5);
 }
+
+/* #region GitHub Gists */
+
+@media (prefers-color-scheme: dark) {
+
+  .gist,
+  .gist a {
+    filter: invert(1);
+  }
+
+  .gist .gist-data {
+    background-color: transparent !important;
+  }
+}
+
+/* #endregion */

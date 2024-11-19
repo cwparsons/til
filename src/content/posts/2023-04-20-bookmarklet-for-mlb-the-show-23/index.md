@@ -1,6 +1,6 @@
 ---
-title: 'Bookmarklet for MLB The Show 23'
-description: 'A bookmarklet to help collect cards in MLB The Show 23.'
+title: 'Bookmarklet for MLB The Show'
+description: 'A bookmarklet to help collect cards in MLB The Show.'
 pubDate: 2023-04-20
 tags: ['bookmarklet']
 ---

@@ -1,0 +1,54 @@
+local_backend: true
+
+backend:
+  automatic_deployments: false
+  base_url: https://sveltia-cms-auth.placeholder.workers.dev
+  branch: main
+  name: github
+  repo: cwparsons/til
+
+media_folder: 'images/uploads'
+
+collections:
+  - name: 'posts'
+    label: 'Posts'
+    label_singular: 'Post'
+    folder: 'src/content/posts'
+    create: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    media_folder: ''
+    public_folder: ''
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Publish Date', name: 'pubDate', widget: 'datetime' }
+      - {
+          label: 'Tags',
+          name: 'tags',
+          widget: 'list',
+          field: { label: 'Tag', name: 'tag', widget: 'string' },
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - label: 'Recently read'
+    name: 'recently-read'
+    files:
+      - label: 'List'
+        name: 'list'
+        file: 'src/content/recently-read/list.yml'
+        fields:
+          - label: Items
+            name: items
+            widget: list
+            collapsed: true
+            add_to_top: true
+            root: true
+            fields:
+              - { label: URL, name: url, widget: string }
+              - { label: Title, name: title, widget: string }
+              - {
+                  label: 'Tags',
+                  name: 'tags',
+                  widget: 'list',
+                  field: { label: 'Tag', name: 'tag', widget: 'string' },
+                }

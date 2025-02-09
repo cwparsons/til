@@ -2,7 +2,7 @@ local_backend: true
 
 backend:
   automatic_deployments: false
-  base_url: https://sveltia-cms-auth.placeholder.workers.dev
+  base_url: https://cms.cwparsons.ca
   branch: main
   name: github
   repo: cwparsons/til

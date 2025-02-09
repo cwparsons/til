@@ -1,57 +1,51 @@
+- url: https://www.joshwcomeau.com/css/container-queries-unleashed/
+  title: Container Queries Unleashed - Josh W Comeau
+  tags:
+    - css
 - url: https://blog.stephaniestimac.com/posts/2024/10/html-details-and-summary-update/
   title: The `<details>` and `<summary>` elements are getting an upgrade - Stephanie Stimac's Blog
   tags:
     - html
-
 - url: https://2024.stateofcss.com/en-US
   title: State of CSS 2024
   tags:
     - css
-
 - url: https://nolanlawson.com/2024/09/18/improving-rendering-performance-with-css-content-visibility/
   title: Improving rendering performance with CSS content-visibility - Nolan Lawson - Read the Tea Leaves
   tags:
     - html
     - css
-
 - url: https://ryanmulligan.dev/blog/css-property-new-style/
   title: CSS @property and the New Style - ryanmulligan.dev
   tags:
     - css
-
 - url: https://build-your-own.org/blog/20240813_css_vertical_center/
   title: CSS finally adds vertical centering in 2024 - James Smith - build-your-own.org
   tags:
     - css
     - html
-
 - url: https://scottjehl.com/posts/html-web-components-shadow-dom/
   title: HTML Web Components Can Have a Little Shadow DOM, As A Treat - Scott Jehl
   tags:
     - web-components
     - html
-
 - url: https://frontendmasters.com/blog/figma-typography-variables/
   title: Figma Typography Variables - Steve Kinney - Frontend Masters Boost
   tags:
     - css
     - figma
-
 - url: https://symposium.sitecore.com/agenda
   title: Sitecore Symposium 2024 agenda
   tags:
     - sitecore
-
 - url: https://frontendmasters.com/blog/exploring-the-possibilities-of-native-javascript-decorators/
   title: Exploring the Possibilities of Native JavaScript Decorators - Frontend Masters Boost
   tags:
     - javascript
-
 - url: https://moderncss.dev/providing-type-definitions-for-css-with-at-property/
   title: Providing Type Definitions for CSS with @property - Modern CSS
   tags:
     - css
-
 - url: https://www.joshtumath.uk/posts/2024-06-11-mesh-gradients-in-css/
   title: Mesh gradients in CSS - Josh Tumath
   tags:

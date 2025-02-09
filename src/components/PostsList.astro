@@ -19,7 +19,7 @@ const posts = (await getCollection('posts'))
   {
     posts.slice(0, showTop).map((post) => (
       <li>
-        <PostHeader isLink={true} slug={post.slug} {...post.data} />
+        <PostHeader isLink={true} id={post.id} {...post.data} />
       </li>
     ))
   }
@@ -33,7 +33,7 @@ const posts = (await getCollection('posts'))
       <ul class="list">
         {posts.slice(showTop).map((post) => (
           <li>
-            <PostHeader isLink={true} slug={post.slug} {...post.data} />
+            <PostHeader isLink={true} id={post.id} {...post.data} />
           </li>
         ))}
       </ul>

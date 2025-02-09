@@ -14,7 +14,7 @@ export async function getStaticPaths() {
   ).sort();
 
   return tags.map((tag) => ({
-    params: { slug: tag },
+    params: { id: tag },
     props: { tag: tag },
   }));
 }

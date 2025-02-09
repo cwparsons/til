@@ -1,15 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
 
-type Props = { slug: string; tags: string[]; top?: number };
+type Props = { id: string; tags: string[]; top?: number };
 
 import PostHeader from '@/components/PostHeader.astro';
 
-const { slug, tags, top = 3 } = Astro.props;
+const { id, tags, top = 3 } = Astro.props;
 
 const posts = (await getCollection('posts'))
   .filter((p) => p.data.tags.some((t) => tags.includes(t)))
-  .filter((p) => p.slug !== slug)
+  .filter((p) => p.id !== id)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, top);
 ---
@@ -22,7 +22,7 @@ const posts = (await getCollection('posts'))
       <ul class="list">
         {posts.map((post) => (
           <li>
-            <PostHeader isLink={true} slug={post.slug} {...post.data} />
+            <PostHeader isLink={true} id={post.id} {...post.data} />
           </li>
         ))}
       </ul>

@@ -8,5 +8,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "strictNullChecks": true
-  }
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }

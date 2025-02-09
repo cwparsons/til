@@ -3,8 +3,9 @@ import { getCollection } from 'astro:content';
 
 import FormattedDate from '@/components/FormattedDate.astro';
 
-const posts = (await getCollection('posts'))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+const posts = (await getCollection('posts')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
 <table>
@@ -19,8 +20,12 @@ const posts = (await getCollection('posts'))
     {
       posts.map((post) => (
         <tr>
-          <td class="td cell nowrap"><FormattedDate date={post.data.pubDate} /></td>
-          <td class="td cell"><a href={`/posts/${post.slug}`}>{post.data.title}</a></td>
+          <td class="td cell nowrap">
+            <FormattedDate date={post.data.pubDate} />
+          </td>
+          <td class="td cell">
+            <a href={`/posts/${post.id}`}>{post.data.title}</a>
+          </td>
           <td class="td cell">{post.data.tags.join(', ')}</td>
         </tr>
       ))

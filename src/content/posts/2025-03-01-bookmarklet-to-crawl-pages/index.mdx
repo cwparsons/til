@@ -1,0 +1,51 @@
+---
+title: Bookmarklet to copy a page
+description: A bookmarklet to copy the current page and generate a script to create a new page.
+pubDate: 2025-03-01
+tags: ['bookmarklet']
+---
+
+On a recent project, I needed to pull the HTML of an existing site and rebrand it in another environment. Unfortunately, due to CORS and anti-crawling measures, I couldn't fetch the data using a script.
+
+To help speed up the process, I created a bookmarklet that could fetch the contents of pages while on the document. It created a little bash script to create the directory and file, then open it immediately in VS Code.
+
+```javascript
+javascript: (async function () {
+  let response = await fetch(location.href, { cache: 'no-store' });
+  let html = await response.text();
+
+  let parser = new DOMParser();
+  let doc = parser.parseFromString(html, 'text/html');
+
+  let title = (doc.querySelector('title')?.textContent || 'Untitled').trim();
+  let description = (doc.querySelector('meta[name="description"]')?.content || '').trim();
+  let main = doc.querySelector('main')?.outerHTML || '\x3C!-- No <main> found -->';
+
+  let path = location.pathname
+    .replace(/\/$/, '')
+    .replace(/[^a-zA-Z0-9\\/_-]/g, '')
+    .toLowerCase();
+  if (!path || path === '/') path = 'home';
+
+  let dirPath = `src${path}`;
+  let filePath = `${dirPath}/index.liquid`;
+
+  let bashScript = `mkdir -p "${dirPath}" && touch "${filePath}" && code "${filePath}"`;
+
+  let frontMatter = `---\ntitle: "${title}"\ndescription: "${description}"\n---`;
+
+  let content = `${frontMatter}\n${main}`;
+
+  await navigator.clipboard.writeText(bashScript);
+
+  alert('First Bash script copied to clipboard! Press OK to copy the full content.');
+
+  await navigator.clipboard
+    .writeText(content)
+    .catch((err) => console.error('Clipboard error:', err));
+})();
+```
+
+<a href="javascript:(function()%7Bjavascript%3A(async%20function()%20%7B%0A%20%20%20%20let%20response%20%3D%20await%20fetch(location.href%2C%20%7B%20cache%3A%20%22no-store%22%20%7D)%3B%0A%20%20%20%20let%20html%20%3D%20await%20response.text()%3B%0A%0A%20%20%20%20let%20parser%20%3D%20new%20DOMParser()%3B%0A%20%20%20%20let%20doc%20%3D%20parser.parseFromString(html%2C%20%22text%2Fhtml%22)%3B%0A%0A%20%20%20%20let%20title%20%3D%20(doc.querySelector(%22title%22)%3F.textContent%20%7C%7C%20%22Untitled%22).trim()%3B%0A%20%20%20%20let%20description%20%3D%20(doc.querySelector('meta%5Bname%3D%22description%22%5D')%3F.content%20%7C%7C%20%22%22).trim()%3B%0A%20%20%20%20let%20main%20%3D%20doc.querySelector(%22main%22)%3F.outerHTML%20%7C%7C%20%22%5Cx3C!--%20No%20%3Cmain%3E%20found%20--%3E%22%3B%0A%0A%20%20%20%20let%20path%20%3D%20location.pathname.replace(%2F%5C%2F%24%2F%2C%20%22%22).replace(%2F%5B%5Ea-zA-Z0-9%5C%5C%2F_-%5D%2Fg%2C%20%22%22).toLowerCase()%3B%0A%20%20%20%20if%20(!path%20%7C%7C%20path%20%3D%3D%3D%20%22%2F%22)%20path%20%3D%20%22home%22%3B%0A%0A%20%20%20%20let%20dirPath%20%3D%20%60src%24%7Bpath%7D%60%3B%0A%20%20%20%20let%20filePath%20%3D%20%60%24%7BdirPath%7D%2Findex.liquid%60%3B%0A%0A%20%20%20%20let%20bashScript%20%3D%20%60mkdir%20-p%20%22%24%7BdirPath%7D%22%20%26%26%20touch%20%22%24%7BfilePath%7D%22%20%26%26%20code%20%22%24%7BfilePath%7D%22%60%3B%0A%0A%20%20%20%20let%20frontMatter%20%3D%20%60---%5Cntitle%3A%20%22%24%7Btitle%7D%22%5Cndescription%3A%20%22%24%7Bdescription%7D%22%5Cn---%60%3B%0A%0A%20%20%20%20let%20content%20%3D%20%60%24%7BfrontMatter%7D%5Cn%24%7Bmain%7D%60%3B%0A%0A%20%20%20%20await%20navigator.clipboard.writeText(bashScript)%3B%0A%0A%20%20%20%20alert(%22First%20Bash%20script%20copied%20to%20clipboard!%20Press%20OK%20to%20copy%20the%20full%20content.%22)%3B%0A%0A%20%20%20%20await%20navigator.clipboard.writeText(content).catch(err%20%3D%3E%20console.error(%22Clipboard%20error%3A%22%2C%20err))%3B%0A%7D)()%3B%7D)()%3B">
+  Drag me to your bookmark bar
+</a>

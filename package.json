@@ -12,24 +12,24 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "5.2.5",
-    "astro-pagefind": "1.8.0"
+    "astro": "^5.5.2",
+    "astro-pagefind": "1.8.3"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/mdx": "4.0.8",
+    "@astrojs/mdx": "4.2.0",
     "@astrojs/rss": "4.0.11",
     "@astrojs/sitemap": "3.2.1",
-    "@fontsource/source-sans-pro": "5.1.0",
+    "@fontsource/source-sans-pro": "5.2.5",
     "@playform/compress": "0.1.7",
     "@rollup/plugin-yaml": "4.1.2",
-    "prettier": "3.4.2",
+    "prettier": "3.5.3",
     "rehype-autolink-headings": "7.1.0",
-    "remark-gfm": "4.0.0",
+    "remark-gfm": "4.0.1",
     "remark-smartypants": "3.0.2",
     "remark-toc": "9.0.0",
     "satori": "0.12.1",
-    "typescript": "5.7.3"
+    "typescript": "5.8.2"
   },
   "overrides": {
     "rollup": ">=4.22.4",

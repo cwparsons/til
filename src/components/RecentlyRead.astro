@@ -30,10 +30,13 @@ const { top = 5 } = Astro.props;
     padding: var(--padding);
 
     @media (min-width: 48rem) {
-      border-radius: 0.5rem;
       column-gap: 4rem;
       display: grid;
       grid-template-columns: 8rem 1fr;
+    }
+
+    @media (min-width: 60rem) {
+      border-radius: 0.5rem;
     }
   }
 

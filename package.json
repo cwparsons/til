@@ -28,6 +28,7 @@
     "remark-gfm": "4.0.1",
     "remark-smartypants": "3.0.2",
     "remark-toc": "9.0.0",
+    "sass-embedded": "1.86.3",
     "satori": "0.12.2",
     "typescript": "5.8.3"
   },

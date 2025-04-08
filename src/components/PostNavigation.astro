@@ -1,0 +1,55 @@
+---
+import { type CollectionEntry } from 'astro:content';
+
+type Props = {
+  nextPost?: CollectionEntry<'posts'>;
+  prevPost?: CollectionEntry<'posts'>;
+};
+
+const { nextPost, prevPost } = Astro.props;
+---
+
+<nav class="navigation">
+  {
+    prevPost && (
+      <a aria-label="Previous post" href={`/posts/${prevPost.id}/`} class="nav-link previous">
+        <b>← Previous post</b>
+        <br />
+        {prevPost.data.title}
+      </a>
+    )
+  }
+  {
+    nextPost && (
+      <a aria-label="Next post" href={`/posts/${nextPost.id}/`} class="nav-link next">
+        <b>Next post →</b>
+        <br />
+        {nextPost.data.title}
+      </a>
+    )
+  }
+</nav>
+
+<style>
+  .navigation {
+    display: flex;
+    gap: 2rem;
+    margin-block-start: clamp(4rem, 6vw, 6rem);
+    justify-content: space-between;
+  }
+
+  .nav-link {
+    max-width: calc(100% / 3 * 2);
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+  }
+
+  .previous {
+    text-align: left;
+  }
+
+  .next {
+    text-align: right;
+  }
+</style>

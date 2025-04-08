@@ -6,23 +6,31 @@ import Layout from '@/layouts/Layout.astro';
 import { SITE_TITLE } from '@/consts';
 import { render } from 'astro:content';
 
-type Props = CollectionEntry<'posts'>;
+type Props = CollectionEntry<'posts'> & {
+  nextPost?: CollectionEntry<'posts'>;
+  prevPost?: CollectionEntry<'posts'>;
+};
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
+  const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-  return posts.map((post) => ({
+  return sortedPosts.map((post, index) => ({
     params: { id: post.id },
-    props: post,
+    props: {
+      ...post,
+      nextPost: sortedPosts[index - 1],
+      prevPost: sortedPosts[index + 1],
+    },
   }));
 }
 
-const post = Astro.props;
+const { nextPost, prevPost, ...post } = Astro.props;
 const { Content } = await render(post);
 ---
 
 <Layout title={`${post.data.title} - ${SITE_TITLE}`} description={post.data.description}>
-  <BlogPost id={post.id} {...post.data}>
+  <BlogPost nextPost={nextPost} prevPost={prevPost} id={post.id} {...post.data}>
     <Content />
   </BlogPost>
 </Layout>

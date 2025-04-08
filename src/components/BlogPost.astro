@@ -3,10 +3,15 @@ import type { CollectionEntry } from 'astro:content';
 
 import PostHeader from '@/components/PostHeader.astro';
 import RelatedPosts from '@/components/RelatedPosts.astro';
+import PostNavigation from '@/components/PostNavigation.astro';
 
-type Props = CollectionEntry<'posts'>['data'] & { id: string };
+type Props = CollectionEntry<'posts'>['data'] & {
+  id: string;
+  nextPost?: CollectionEntry<'posts'>;
+  prevPost?: CollectionEntry<'posts'>;
+};
 
-const { title, description, pubDate } = Astro.props;
+const { title, description, pubDate, nextPost, prevPost } = Astro.props;
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -30,6 +35,8 @@ const structuredData = {
 
 <RelatedPosts id={Astro.props.id} tags={Astro.props.tags} />
 
+<PostNavigation nextPost={nextPost} prevPost={prevPost} />
+
 <style>
   @keyframes fadeInUp {
     0% {
@@ -42,8 +49,7 @@ const structuredData = {
       transform: translateY(0);
     }
   }
-
-  .content {
+  ga .content {
     @media not (prefers-reduced-motion) {
       opacity: 0;
       animation: fadeInUp 0.25s ease-out forwards;
@@ -51,7 +57,7 @@ const structuredData = {
 
     @media (min-width: 48rem) {
       margin-inline-start: 12rem;
-      margin-block-start: 3rem;
+      margin-block: 3rem;
     }
   }
 </style>

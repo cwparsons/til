@@ -8,7 +8,7 @@ const posts = (await getCollection('posts')).sort(
 );
 ---
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th class="th cell">Publish date</th>
@@ -38,6 +38,11 @@ const posts = (await getCollection('posts')).sort(
     white-space: nowrap;
   }
 
+  .table {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
   .th {
     text-align: start;
   }
@@ -45,5 +50,13 @@ const posts = (await getCollection('posts')).sort(
   .cell {
     padding: 0.5rem;
     vertical-align: top;
+
+    &:first-child {
+      padding-inline-start: 0;
+    }
+
+    &:last-child {
+      padding-inline-end: 0;
+    }
   }
 </style>

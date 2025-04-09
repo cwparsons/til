@@ -2,7 +2,7 @@
 title: Initial Sanity impressions
 description: A list of stuff learned around using Sanity.
 pubDate: 2024-08-07
-tags: ['sanity', 'next']
+tags: ['sanity', 'nextjs']
 ---
 
 > This content is still a work-in-progress.

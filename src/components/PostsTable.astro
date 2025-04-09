@@ -26,7 +26,7 @@ const posts = (await getCollection('posts')).sort(
           <td class="td cell">
             <a href={`/posts/${post.id}`}>{post.data.title}</a>
           </td>
-          <td class="td cell">{post.data.tags.join(', ')}</td>
+          <td class="td cell">#{post.data.tags.join(', #')}</td>
         </tr>
       ))
     }

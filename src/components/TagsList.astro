@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('posts');
+const tags = Array.from(
+  new Set(posts.reduce((arr, post) => [...arr, ...post.data.tags], [])),
+).sort();
+---
+
+<ul class="tags-list">
+  {
+    tags.map((tag) => (
+      <li>
+        <a href={`/tags/${tag}/`}>{tag}</a>
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .tags-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>

@@ -2,7 +2,7 @@
 title: 'spfx-azure-pipeline'
 description: 'Sample Azure Pipeline for building SharePoint Framework (SPFx) packages.'
 pubDate: 2024-11-13
-tags: ['project', 'sharepoint-spfx', 'azure-pipeline']
+tags: ['project', 'sharepoint-spfx', 'azure-devops']
 ---
 
 A sample `azure-pipeline.yml` for building SharePoint Framework projects within Azure DevOps.

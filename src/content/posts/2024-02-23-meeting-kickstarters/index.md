@@ -2,7 +2,7 @@
 title: Meeting Kickstarters using Next.js, Decap CMS
 description: A Next.js
 pubDate: 2024-02-23
-tags: ['decap-cms', 'project', 'next']
+tags: ['decap-cms', 'project', 'nextjs']
 ---
 
 [MeetingKickstarters.com](https://meetingkickstarters.com/) is my first production Next.js site that we built as part of a end-of-year experience to send to customers at Habanero.

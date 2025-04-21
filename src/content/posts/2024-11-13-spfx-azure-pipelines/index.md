@@ -16,7 +16,7 @@ trigger:
   batch: 'true'
   branches:
     include:
-      - master
+      - main
 
 variables:
   - name: release
@@ -51,9 +51,9 @@ steps:
       $version, $metadata = ("$(Build.BuildNumber)" -split '\+')[0, -1]
       Write-Verbose "Setting package versions to $version"
 
-      $json = Get-Content "$(build.sourcesdirectory)/package-solution.json" -raw | ConvertFrom-Json
+      $json = Get-Content "$(build.sourcesdirectory)/config/package-solution.json" -raw | ConvertFrom-Json
       $json.solution.version = "$version.0"
-      $json | ConvertTo-Json -depth 32 | Set-Content "$(build.sourcesdirectory)/package-solution.json"
+      $json | ConvertTo-Json -depth 32 | Set-Content "$(build.sourcesdirectory)/config/package-solution.json"
     displayName: 'Set package-solution.json to use Azure DevOps build number'
 
   - powershell: |

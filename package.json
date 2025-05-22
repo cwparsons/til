@@ -12,14 +12,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "5.6.1",
+    "astro": "5.8.0",
     "astro-pagefind": "1.8.3"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/mdx": "4.2.3",
+    "@astrojs/mdx": "4.3.0",
     "@astrojs/rss": "4.0.11",
-    "@astrojs/sitemap": "3.3.0",
+    "@astrojs/sitemap": "3.4.0",
     "@fontsource/source-sans-pro": "5.2.5",
     "@playform/compress": "0.1.9",
     "@rollup/plugin-yaml": "4.1.2",
@@ -28,8 +28,8 @@
     "remark-gfm": "4.0.1",
     "remark-smartypants": "3.0.2",
     "remark-toc": "9.0.0",
-    "sass-embedded": "1.86.3",
-    "satori": "0.12.2",
+    "sass-embedded": "1.89.0",
+    "satori": "0.13.1",
     "typescript": "5.8.3"
   },
   "overrides": {

@@ -7,8 +7,10 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check --minimumSeverity warning && astro build",
+    "prebuild": "npm run update-cms",
     "prettier": "prettier \"./{src}/**/*.{astro,css,js,mjs,ts,tsx,json}\" --write --no-error-on-unmatched-pattern",
     "preview": "astro preview",
+    "update-cms": "node ./scripts/update-cms.js",
     "astro": "astro"
   },
   "dependencies": {

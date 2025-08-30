@@ -63,7 +63,7 @@ try {
   // Update script tag
   const newScriptTag = `<script src="https://unpkg.com/@sveltia/cms@${version}/dist/sveltia-cms.js" integrity="${integrity}" crossorigin="anonymous"></script>`;
   htmlContent = htmlContent.replace(
-    /<script src="https:\/\/unpkg\.com\/@sveltia\/cms@.*?<\/script>/,
+    /<script[^>]*src="https:\/\/unpkg\.com\/@sveltia\/cms@[^"]*"[^>]*crossorigin="[^"]*"[^>]*><\/script>/s,
     newScriptTag,
   );
 

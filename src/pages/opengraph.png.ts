@@ -6,7 +6,7 @@ import { SITE_TITLE } from '@/consts';
 export const GET: APIRoute = async function get() {
   const png = await PNG(SITE_TITLE);
 
-  return new Response(png, {
+  return new Response(new Uint8Array(png), {
     headers: {
       'Content-Type': 'image/png',
     },

@@ -44,7 +44,7 @@ I've prompted to refactor the work.
 - Functionality I knew how to write by hand was easy to review. Functionality I
 had not dealt with before, like Cloudflare's Wrangler configuration, ended up
 being complicated to troubleshoot.
-- Describing styling as a propmt is hard and I resorted to changing Tailwind
+- Describing styling as a prompt is hard and I resorted to changing Tailwind
 classes by hand to it to look right.
 - To troubleshoot certain bugs, the output added console logs and asked the output
 to be pasted into chat. I'm sure there is some browser/MCP way to do this that

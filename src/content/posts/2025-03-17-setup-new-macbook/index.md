@@ -1,40 +1,96 @@
 ---
-title: Setting up a new MacBook Air in 2025 for web development
+title: Setting up a new MacBook in 2025 for web development
 description: ""
 pubDate: 2025-03-17
 tags: ['personal']
 ---
 
-To help automate the setup of a new MacBook Air in 2025, I use the following scripts:
+To help automate the setup of a new MacBook in 2025, I use the following scripts:
+
+## Check for Command Line Tools update
+
+```bash
+xcode-select --install
+```
 
 ## Install [homebrew](https://brew.sh/)
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### Packages
+### .Brewfile
 
-```bash
-brew install dockutil ffmpeg git imagemagick mas nvm yt-dlp
+Create the following `.Brewfile`, then run `brew bundle`.
+
+```plaintext
+brew "dockutil"
+brew "ffmpeg"
+brew "fnm"
+brew "git"
+brew "imagemagick"
+brew "mas"
+brew "yt-dlp"
+brew "zsh-autosuggestions"
+cask "1password"
+cask "android-platform-tools"
+cask "appcleaner"
+cask "bambu-studio"
+cask "cursor"
+cask "docker"
+cask "elgato-control-center"
+cask "elgato-stream-deck"
+cask "figma"
+cask "firefox"
+cask "google-chrome"
+cask "imageoptim"
+cask "iterm2"
+cask "jabra-direct"
+cask "lastfm"
+cask "maccy"
+cask "microsoft-edge"
+cask "microsoft-office"
+cask "microsoft-remote-desktop"
+cask "microsoft-teams"
+cask "monitorcontrol"
+cask "obs"
+cask "openvpn-connect"
+cask "plex"
+cask "powershell"
+cask "sonos"
+cask "steam"
+cask "sublime-text"
+cask "vlc"
+mas "1Password for Safari", id: 1569813296
+mas "Divvy", id: 413857545
+mas "DuckDuckGo Privacy for Safari", id: 1482920575
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "uBlock Origin Lite", id: 6745342698
+mas "Velja", id: 1607635845
+mas "Xcode", id: 497799835
 ```
+
+<details>
+  <summary>Packages</summary>
 
 - [dockutil](https://formulae.brew.sh/formula/dockutil)
 - [ffmpeg](https://formulae.brew.sh/formula/ffmpeg)
+- [fnm](https://formulae.brew.sh/formula/fnm)
 - [git](https://formulae.brew.sh/formula/git)
 - [imagemagick](https://formulae.brew.sh/formula/imagemagick)
 - [mas](https://formulae.brew.sh/formula/mas)
 - [yt-dlp](https://formulae.brew.sh/formula/yt-dlp)
+- [zsh-autosuggestions](https://formulae.brew.sh/formula/zsh-autosuggestions)
 
-### Casks
+</details>
 
-```bash
-brew install --cask 1password android-platform-tools appcleaner cursor docker elgato-control-center elgato-stream-deck figma firefox google-chrome imageoptim iterm2 lastfm lunar microsoft-edge microsoft-office microsoft-remote-desktop microsoft-teams monitorcontrol obs plex powershell raycast sonos steam sublime-text visual-studio-code vlc
-```
+<details>
+  <summary>Casks</summary>
 
 - [1password](https://formulae.brew.sh/cask/1password)
 - [android-platform-tools](https://formulae.brew.sh/cask/android-platform-tools)
 - [appcleaner](https://formulae.brew.sh/cask/appcleaner)
+- [bambu-studio](https://formulae.brew.sh/cask/bambu-studio)
 - [cursor](https://formulae.brew.sh/cask/cursor)
 - [docker](https://formulae.brew.sh/cask/docker)
 - [elgato-control-center](https://formulae.brew.sh/cask/elgato-control-center)
@@ -44,44 +100,37 @@ brew install --cask 1password android-platform-tools appcleaner cursor docker el
 - [google-chrome](https://formulae.brew.sh/cask/google-chrome)
 - [imageoptim](https://formulae.brew.sh/cask/imageoptim)
 - [iterm2](https://formulae.brew.sh/cask/iterm2)
+- [jabra-direct](https://formulae.brew.sh/cask/jabra-direct)
 - [lastfm](https://formulae.brew.sh/cask/lastfm)
-- [lunar](https://formulae.brew.sh/cask/lunar)
+- [maccy](https://formulae.brew.sh/cask/maccy)
 - [microsoft-edge](https://formulae.brew.sh/cask/microsoft-edge)
 - [microsoft-office](https://formulae.brew.sh/cask/microsoft-office)
 - [microsoft-remote-desktop](https://formulae.brew.sh/cask/microsoft-remote-desktop)
 - [microsoft-teams](https://formulae.brew.sh/cask/microsoft-teams)
 - [monitorcontrol](https://formulae.brew.sh/cask/monitorcontrol)
 - [obs](https://formulae.brew.sh/cask/obs)
+- [openvpn-connect](https://formulae.brew.sh/cask/openvpn-connect)
 - [plex](https://formulae.brew.sh/cask/plex)
 - [powershell](https://formulae.brew.sh/cask/powershell)
-- [raycast](https://formulae.brew.sh/cask/raycast)
 - [sonos](https://formulae.brew.sh/cask/sonos)
 - [steam](https://formulae.brew.sh/cask/steam)
 - [sublime-text](https://formulae.brew.sh/cask/sublime-text)
-- [visual-studio-code](https://formulae.brew.sh/cask/visual-studio-code)
 - [vlc](https://formulae.brew.sh/cask/vlc)
 
-## macOS Store
+</details>
 
-Some apps can be only installed (or have been previously purchased) through the MacOS App Store. The installation of `mas` allows for installing these via terminal.
 
-```bash
-mas install 1569813296 # 1Password for Safari
-mas install 413857545 # Divvy
-mas install 1607635845 # Velja
-mas install 1288415553 # Wyze
-mas install 497799835 # Xcode
-```
+<details>
+  <summary>macOS App Store</summary>
 
 - [1Password for Safari](https://apps.apple.com/ca/app/1password-for-safari/id1569813296)
 - [Divvy](https://apps.apple.com/ca/app/divvy-window-manager/id413857545)
 - [Velja](https://apps.apple.com/ca/app/velja/id1607635845)
+- [Windows App](https://apps.apple.com/ca/app/windows-app/id1295203466)
+- [Wyze](https://apps.apple.com/ca/app/wyze/1288415553)
 - [Xcode](https://apps.apple.com/ca/app/xcode/id497799835)
 
-### Manual install
-
-- [Wyze](https://apps.apple.com/ca/app/wyze-make-your-home-smarter/id1288415553)
-- [DuckDuckGo Privacy for Safari](https://apps.apple.com/ca/app/duckduckgo-privacy-for-safari/id1482920575)
+</details>
 
 ## macOS changes
 
@@ -109,6 +158,21 @@ dockutil --add /Applications/Firefox.app
 dockutil --add /Applications/Cursor.app
 dockutil --add /Applications/iTerm.app
 
+# Install `oh-my-zsh`
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+# Add `zsh-autosuggestions` to ~/.zshrc
+grep -q "zsh-autosuggestions" ~/.zshrc || echo "source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+
+# Add `fnm` to ~/.zshrc
+grep -q "fnm" ~/.zshrc || echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshrc
+
+# Install latest LTS version of Node
+fnm install --lts
+
+# Install `bum`
+curl -fsSL https://raw.githubusercontent.com/owenizedd/bum/25fa0552c92aa9a1434e63d465ebaba014efe770/install.sh | bash
+
 # Screenshots
 mkdir ~/Screenshots
 defaults write com.apple.screencapture location ~/Screenshots
@@ -118,9 +182,22 @@ defaults write com.apple.finder AppleShowAllFiles YES
 
 # Hide dock
 osascript -e "tell application \"System Events\" to set the autohide of the dock preferences to true"
+
+# Restart Dock
+killall Dock
 ```
 
 ### Manual steps
 
 - Rename computer
 - Enable SSH agent in 1Password
+
+## 2026 update
+
+- Updated to use `.Brewfile`
+- Replaced `nvm` with `fnm` in formulae
+- Added `zsh-autosuggestions` in formulae
+- Added `bambu-studio`, `jabra-direct`, `openvpn-connect` to casks
+- Removed `lunar`, `raycast`, `visual-studio-code` from casks
+- Added *Windows App* to *App Store*
+- Added `bum`, `oh-my-zsh` to manual steps

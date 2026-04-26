@@ -14,24 +14,24 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "5.17.1",
-    "astro-pagefind": "1.8.5"
+    "astro": "6.1.9",
+    "astro-pagefind": "1.8.6"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.6",
-    "@astrojs/mdx": "4.3.13",
-    "@astrojs/rss": "4.0.15",
-    "@astrojs/sitemap": "3.7.0",
+    "@astrojs/check": "0.9.8",
+    "@astrojs/mdx": "5.0.4",
+    "@astrojs/rss": "4.0.18",
+    "@astrojs/sitemap": "3.7.2",
     "@fontsource/source-sans-pro": "5.2.5",
-    "@playform/compress": "0.2.1",
+    "@playform/compress": "0.2.3",
     "@rollup/plugin-yaml": "4.1.2",
-    "prettier": "3.8.1",
+    "prettier": "3.8.3",
     "rehype-autolink-headings": "7.1.0",
     "remark-gfm": "4.0.1",
     "remark-smartypants": "3.0.2",
     "remark-toc": "9.0.0",
-    "sass-embedded": "1.97.3",
-    "satori": "0.19.1",
+    "sass-embedded": "1.99.0",
+    "satori": "0.26.0",
     "typescript": "5.9.3"
   },
   "overrides": {

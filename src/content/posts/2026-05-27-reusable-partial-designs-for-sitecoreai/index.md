@@ -1,5 +1,5 @@
 ---
-title: Reusable partial designs for SitecoreAI
+title: Reusable partial design component for SitecoreAI
 description: "Combine multiple components into a partial design, then reuse it within SitecoreAI placeholders."
 pubDate: 2026-05-27
 tags: ['sitecore']
@@ -19,6 +19,11 @@ Instead, I wanted to use partial designs like components: drop one into any
 placeholder, around any other component. After some research, I found I could
 fetch the contents of a partial design and create my own component.
 
+## Warning
+
+This is not the intended usage of partial designs and may not be supported.
+Use at your own risk.
+
 ## Partial design component
 
 The component uses a *Datasource Location* that matches where partial designs
@@ -36,14 +41,15 @@ Then set the *Datasource Template* to *Partial Design*:
 // PartialDesignComponent.tsx
 import { useContext } from 'react';
 
-import type { LayoutServiceData, PlaceholdersData } from '@sitecore-content-sdk/nextjs';
 import {
   type ComponentParams,
   ComponentPropsContext,
   ComponentPropsReactContext,
   type ComponentRendering,
   type GetComponentServerProps,
+  type LayoutServiceData,
   Placeholder,
+  type PlaceholdersData,
 } from '@sitecore-content-sdk/nextjs';
 
 import componentMap from '@/../.sitecore/component-map';

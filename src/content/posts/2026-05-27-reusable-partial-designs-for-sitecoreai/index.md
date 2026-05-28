@@ -1,33 +1,32 @@
 ---
-title: Reuseable partial design for SitecoreAI
-description: "Combine multiple components together into a partial design and then reuse it within SitecoreAI placeholders."
+title: Reusable partial designs for SitecoreAI
+description: "Combine multiple components into a partial design, then reuse it within SitecoreAI placeholders."
 pubDate: 2026-05-27
 tags: ['sitecore']
 ---
 
-Previously, Sitecore Experience Accelerator (SXA) allowed for [Snippets](https://doc.sitecore.com/xp/en/developers/sxa/104/sitecore-experience-accelerator/configure-a-snippet.html), which allowed for
-content that was made up of multiple renderings to be reused across a site.
+Previously, Sitecore Experience Accelerator (SXA) supported [Snippets](https://doc.sitecore.com/xp/en/developers/sxa/104/sitecore-experience-accelerator/configure-a-snippet.html),
+which allowed content made up of multiple renderings to be reused across a site.
 
-SitecoreAI has a similar concept of partial designs, where components can be
-composed and reused across pages, but they completely take over the placeholder
-they live in. So if you create a header partial design and place it in the
+SitecoreAI has a similar concept called partial designs. Components can be
+composed and reused across pages, but they take over the placeholder they live
+in. For example, if you create a header partial design and place it in the
 `headless-header` placeholder for a page design, individual pages cannot put
-additional components within the placeholder. This prevents using partial
-designs in any placeholder, but instead just very fixed places.
+additional components within that placeholder. This limits partial designs to
+fixed placeholders instead of letting you use them anywhere.
 
-Instead, I wanted to be able to use them like a component and be able to drop in
-a partial design in any placeholder, around any component. So after some
-research, I realized I was able to get the contents of a partial design, and
-just create my own component.
+Instead, I wanted to use partial designs like components: drop one into any
+placeholder, around any other component. After some research, I found I could
+fetch the contents of a partial design and create my own component.
 
 ## Partial design component
 
-The component uses a *Datasource Location** that matches where partial designs
+The component uses a *Datasource Location* that matches where partial designs
 are created by default:
 
 `query:$site/*[@@name='Presentation']/*[@@templatename='Partial Designs']|query:$sharedSites/*[@@name='Presentation']/*[@@templatename='Partial Designs']`
 
-Then a *Datasource Template* of *Partial Design*:
+Then set the *Datasource Template* to *Partial Design*:
 
 `/sitecore/templates/Foundation/JSS Experience Accelerator/Presentation/Partial Design`
 
@@ -50,7 +49,7 @@ import {
 import componentMap from '@/../.sitecore/component-map';
 import { getGraphQlClient } from '@/utils/graphql-client';
 
-// Placeholder where components are added to within the partial design.
+// Placeholder where components are added within the partial design.
 const MAIN_PLACEHOLDER = 'headless-main';
 
 // GraphQL query to fetch the partial design "page".
@@ -171,7 +170,7 @@ export const getComponentServerProps: GetComponentServerProps = async (
     language: layoutData?.sitecore?.context?.language,
   });
 
-  // Return empty object if item is missing
+  // Return an empty object if the item is missing.
   if (!result?.item) {
     return {};
   }
@@ -180,7 +179,7 @@ export const getComponentServerProps: GetComponentServerProps = async (
   const childRenderings = flattenRenderings(placeholders);
   const componentProps: Record<string, unknown> = {};
 
-  // Get the results from every component that uses `getComponentServerProps`
+  // Get the results from every component that uses `getComponentServerProps`.
   await Promise.all(
     childRenderings.map(async (childRendering) => {
       const uid = childRendering.uid;

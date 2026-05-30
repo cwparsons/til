@@ -38,7 +38,7 @@ export async function GET(context: APIContext) {
         description: post.data.description,
         pubDate: post.data.pubDate,
         categories: post.data.tags,
-        link: `/${post.id}/`,
+        link: `/posts/${post.id}/`,
         content: prepareRssContent(rawContent, baseUrl),
       };
     }),

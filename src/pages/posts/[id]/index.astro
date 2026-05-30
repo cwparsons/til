@@ -36,6 +36,54 @@ const { Content } = await render(post);
 </Layout>
 
 <script>
+  const clipboardIcon =
+    '<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9.75a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.19V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.113.807-2.062 1.907-2.19a48.507 48.507 0 0 1 1.927-.184" /></svg>';
+
+  function getCodeText(block: Element) {
+    return (block.querySelector('code') ?? block).textContent ?? '';
+  }
+
+  function announceCopied(status: HTMLElement) {
+    status.textContent = '';
+    requestAnimationFrame(() => {
+      status.textContent = 'Copied!';
+    });
+  }
+
+  function initCopyButtons() {
+    document.querySelectorAll('.astro-code').forEach((block, index) => {
+      if (block.querySelector('.code-copy-button')) return;
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'code-copy-button';
+      button.innerHTML = `${clipboardIcon}<span>Copy to clipboard</span>`;
+      const label = button.querySelector('span')!;
+
+      const status = document.createElement('span');
+      status.id = `code-copy-status-${index}`;
+      status.className = 'visually-hidden';
+      status.setAttribute('role', 'status');
+      status.setAttribute('aria-live', 'polite');
+      button.setAttribute('aria-describedby', status.id);
+
+      let copiedTimeout: ReturnType<typeof setTimeout> | undefined;
+
+      button.addEventListener('click', async () => {
+        await navigator.clipboard.writeText(getCodeText(block));
+        label.textContent = 'Copied!';
+        announceCopied(status);
+        clearTimeout(copiedTimeout);
+        copiedTimeout = setTimeout(() => {
+          label.textContent = 'Copy to clipboard';
+          status.textContent = '';
+        }, 2000);
+      });
+
+      block.prepend(button, status);
+    });
+  }
+
   function updateWideCodeBlocks() {
     const blocks = document.querySelectorAll('.astro-code');
 
@@ -49,12 +97,13 @@ const { Content } = await render(post);
 
   let codeBlockObserver: ResizeObserver | undefined;
 
-  function initWideCodeBlocks() {
+  function initCodeBlocks() {
+    initCopyButtons();
     updateWideCodeBlocks();
     codeBlockObserver?.disconnect();
     codeBlockObserver = new ResizeObserver(updateWideCodeBlocks);
     document.querySelectorAll('.astro-code').forEach((block) => codeBlockObserver!.observe(block));
   }
 
-  document.addEventListener('astro:page-load', initWideCodeBlocks);
+  document.addEventListener('astro:page-load', initCodeBlocks);
 </script>

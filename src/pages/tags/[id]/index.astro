@@ -10,7 +10,7 @@ type Props = { tag: string };
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   const tags = Array.from(
-    new Set(posts.reduce((arr, post) => [...arr, ...post.data.tags], [])),
+    new Set(posts.reduce((arr, post) => [...arr, ...post.data.tags], [] as string[])),
   ).sort();
 
   return tags.map((tag) => ({

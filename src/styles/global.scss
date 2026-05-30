@@ -6,15 +6,14 @@
   --text-color: 25, 25, 25;
   --font-family: system-ui, sans-serif;
 
-  --pagefind-ui-font: var(--font-family);
-  --pagefind-ui-scale: 1.2;
-  --pagefind-ui-border-radius: 0.5rem;
-  --pagefind-ui-primary: rgb(var(--text-color));
-  --pagefind-ui-text: rgb(var(--text-color));
-  --pagefind-ui-background: rgb(var(--background-color));
-  --pagefind-ui-border: rgb(var(--background-color));
-  --pagefind-ui-tag: rgb(var(--background-color));
-  --pf-searchbox-max-width: 100%;
+  --pagefind-ui-font: var(--font-family) !important;
+  --pagefind-ui-scale: 1.2 !important;
+  --pagefind-ui-border-radius: 0.5rem !important;
+  --pagefind-ui-primary: rgb(var(--text-color)) !important;
+  --pagefind-ui-text: rgb(var(--text-color)) !important;
+  --pagefind-ui-background: rgb(var(--background-color)) !important;
+  --pagefind-ui-border: rgb(var(--background-color)) !important;
+  --pagefind-ui-tag: rgb(var(--background-color)) !important;
 
   --font-size-sm: clamp(0.825rem, 0.39vi + 0.75rem, 1rem);
   --font-size-base: clamp(1rem, 0.71vi + 0.825rem, 1.25rem);

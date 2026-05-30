@@ -13,6 +13,9 @@ import remarkSmartypants from 'remark-smartypants';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://cwparsons.ca',
+  build: {
+    inlineStylesheets: 'always',
+  },
   image: {
     service: {
       entrypoint: './src/image-service.ts',

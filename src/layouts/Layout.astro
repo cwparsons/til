@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+
 import BaseHead from '@/components/BaseHead.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_WORDMARK } from '@/consts';
 
@@ -11,6 +13,7 @@ const { description, isRoot = false, title } = Astro.props;
 <html lang="en">
   <head>
     <BaseHead title={title ?? SITE_TITLE} description={description ?? SITE_DESCRIPTION} />
+    <ClientRouter />
   </head>
   <body class="body">
     <header class="container header">

@@ -2,8 +2,10 @@
 import Search from 'astro-pagefind/components/Search';
 
 import Layout from '@/layouts/Layout.astro';
+import { SITE_TITLE } from '@/consts';
 ---
 
-<Layout>
+<Layout title={`Search - ${SITE_TITLE}`}>
+  <h1>Search posts</h1>
   <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
 </Layout>

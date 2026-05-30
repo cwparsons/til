@@ -13,6 +13,11 @@ import remarkSmartypants from 'remark-smartypants';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://cwparsons.ca',
+  image: {
+    service: {
+      entrypoint: './src/image-service.ts',
+    },
+  },
   markdown: {
     rehypePlugins: [
       rehypeHeadingIds,

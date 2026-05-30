@@ -2,6 +2,7 @@ import { SITE_TITLE } from '@/consts';
 import type { JSX } from 'astro/jsx-runtime';
 
 import fs from 'fs/promises';
+import path from 'path';
 import satori from 'satori';
 import sharp from 'sharp';
 
@@ -60,7 +61,7 @@ export async function SVG(component: JSX.Element) {
         weight: 400,
         style: 'normal',
         data: await fs.readFile(
-          './node_modules/@fontsource/source-sans-pro/files/source-sans-pro-latin-400-normal.woff',
+          path.resolve(process.cwd(), 'node_modules/@fontsource/source-sans-pro/files/source-sans-pro-latin-400-normal.woff'),
         ),
       },
       {
@@ -68,7 +69,7 @@ export async function SVG(component: JSX.Element) {
         weight: 600,
         style: 'normal',
         data: await fs.readFile(
-          './node_modules/@fontsource/source-sans-pro/files/source-sans-pro-latin-600-normal.woff',
+          path.resolve(process.cwd(), 'node_modules/@fontsource/source-sans-pro/files/source-sans-pro-latin-600-normal.woff'),
         ),
       },
     ],

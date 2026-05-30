@@ -1,6 +1,6 @@
 ---
 title: Setting up a new MacBook in 2025 for web development
-description: ""
+description: 'Scripts and a Brewfile for automating a new MacBook setup for web development.'
 pubDate: 2025-03-17
 tags: ['personal']
 ---

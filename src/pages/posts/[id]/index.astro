@@ -34,3 +34,27 @@ const { Content } = await render(post);
     <Content />
   </BlogPost>
 </Layout>
+
+<script>
+  function updateWideCodeBlocks() {
+    const blocks = document.querySelectorAll('.astro-code');
+
+    blocks.forEach((block) => block.classList.remove('is-wide'));
+    blocks.forEach((block) => {
+      if (block.scrollWidth > block.clientWidth) {
+        block.classList.add('is-wide');
+      }
+    });
+  }
+
+  let codeBlockObserver: ResizeObserver | undefined;
+
+  function initWideCodeBlocks() {
+    updateWideCodeBlocks();
+    codeBlockObserver?.disconnect();
+    codeBlockObserver = new ResizeObserver(updateWideCodeBlocks);
+    document.querySelectorAll('.astro-code').forEach((block) => codeBlockObserver!.observe(block));
+  }
+
+  document.addEventListener('astro:page-load', initWideCodeBlocks);
+</script>

@@ -19,9 +19,9 @@ xcode-select --install
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-### .Brewfile
+### Brewfile
 
-Create the following `.Brewfile`, then run `brew bundle`.
+Create the following `Brewfile`, then run `brew bundle`.
 
 ```plaintext
 brew "dockutil"
@@ -30,6 +30,7 @@ brew "fnm"
 brew "git"
 brew "imagemagick"
 brew "mas"
+brew "powershell"
 brew "yt-dlp"
 brew "zsh-autosuggestions"
 cask "1password"
@@ -37,17 +38,16 @@ cask "android-platform-tools"
 cask "appcleaner"
 cask "bambu-studio"
 cask "cursor"
-cask "docker"
+cask "docker-desktop"
 cask "elgato-control-center"
 cask "elgato-stream-deck"
 cask "figma"
 cask "firefox"
+cask "ghostty"
 cask "google-chrome"
+cask "handbrake-app"
 cask "imageoptim"
-cask "iterm2"
-cask "jabra-direct"
 cask "lastfm"
-cask "maccy"
 cask "microsoft-edge"
 cask "microsoft-office"
 cask "microsoft-remote-desktop"
@@ -56,14 +56,11 @@ cask "monitorcontrol"
 cask "obs"
 cask "openvpn-connect"
 cask "plex"
-cask "powershell"
 cask "sonos"
 cask "steam"
 cask "sublime-text"
 cask "vlc"
 mas "1Password for Safari", id: 1569813296
-mas "Divvy", id: 413857545
-mas "DuckDuckGo Privacy for Safari", id: 1482920575
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "uBlock Origin Lite", id: 6745342698
 mas "Velja", id: 1607635845
@@ -79,6 +76,7 @@ mas "Xcode", id: 497799835
 - [git](https://formulae.brew.sh/formula/git)
 - [imagemagick](https://formulae.brew.sh/formula/imagemagick)
 - [mas](https://formulae.brew.sh/formula/mas)
+- [powershell](https://formulae.brew.sh/formula/powershell)
 - [yt-dlp](https://formulae.brew.sh/formula/yt-dlp)
 - [zsh-autosuggestions](https://formulae.brew.sh/formula/zsh-autosuggestions)
 
@@ -92,17 +90,16 @@ mas "Xcode", id: 497799835
 - [appcleaner](https://formulae.brew.sh/cask/appcleaner)
 - [bambu-studio](https://formulae.brew.sh/cask/bambu-studio)
 - [cursor](https://formulae.brew.sh/cask/cursor)
-- [docker](https://formulae.brew.sh/cask/docker)
+- [docker-desktop](https://formulae.brew.sh/cask/docker-desktop)
 - [elgato-control-center](https://formulae.brew.sh/cask/elgato-control-center)
 - [elgato-stream-deck](https://formulae.brew.sh/cask/elgato-stream-deck)
 - [figma](https://formulae.brew.sh/cask/figma)
 - [firefox](https://formulae.brew.sh/cask/firefox)
 - [google-chrome](https://formulae.brew.sh/cask/google-chrome)
+- [handbrake-app](https://formulae.brew.sh/cask/handbrake-app)
 - [imageoptim](https://formulae.brew.sh/cask/imageoptim)
-- [iterm2](https://formulae.brew.sh/cask/iterm2)
-- [jabra-direct](https://formulae.brew.sh/cask/jabra-direct)
+- [ghostty](https://formulae.brew.sh/cask/ghostty)
 - [lastfm](https://formulae.brew.sh/cask/lastfm)
-- [maccy](https://formulae.brew.sh/cask/maccy)
 - [microsoft-edge](https://formulae.brew.sh/cask/microsoft-edge)
 - [microsoft-office](https://formulae.brew.sh/cask/microsoft-office)
 - [microsoft-remote-desktop](https://formulae.brew.sh/cask/microsoft-remote-desktop)
@@ -111,7 +108,6 @@ mas "Xcode", id: 497799835
 - [obs](https://formulae.brew.sh/cask/obs)
 - [openvpn-connect](https://formulae.brew.sh/cask/openvpn-connect)
 - [plex](https://formulae.brew.sh/cask/plex)
-- [powershell](https://formulae.brew.sh/cask/powershell)
 - [sonos](https://formulae.brew.sh/cask/sonos)
 - [steam](https://formulae.brew.sh/cask/steam)
 - [sublime-text](https://formulae.brew.sh/cask/sublime-text)
@@ -124,7 +120,6 @@ mas "Xcode", id: 497799835
   <summary>macOS App Store</summary>
 
 - [1Password for Safari](https://apps.apple.com/ca/app/1password-for-safari/id1569813296)
-- [Divvy](https://apps.apple.com/ca/app/divvy-window-manager/id413857545)
 - [Velja](https://apps.apple.com/ca/app/velja/id1607635845)
 - [Windows App](https://apps.apple.com/ca/app/windows-app/id1295203466)
 - [Wyze](https://apps.apple.com/ca/app/wyze/1288415553)
@@ -197,7 +192,7 @@ killall Dock
 - Updated to use `.Brewfile`
 - Replaced `nvm` with `fnm` in formulae
 - Added `zsh-autosuggestions` in formulae
-- Added `bambu-studio`, `jabra-direct`, `openvpn-connect` to casks
+- Added `bambu-studio`, `ghostty`, `openvpn-connect` to casks
 - Removed `lunar`, `raycast`, `visual-studio-code` from casks
 - Added *Windows App* to *App Store*
 - Added `bum`, `oh-my-zsh` to manual steps

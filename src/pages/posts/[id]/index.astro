@@ -29,7 +29,11 @@ const { nextPost, prevPost, ...post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Layout title={`${post.data.title} - ${SITE_TITLE}`} description={post.data.description}>
+<Layout
+  title={`${post.data.title} - ${SITE_TITLE}`}
+  description={post.data.description}
+  pubDate={post.data.pubDate}
+>
   <BlogPost nextPost={nextPost} prevPost={prevPost} id={post.id} {...post.data}>
     <Content />
   </BlogPost>

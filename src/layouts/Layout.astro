@@ -2,15 +2,19 @@
 import BaseHead from '@/components/BaseHead.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_WORDMARK } from '@/consts';
 
-type Props = { description?: string; isRoot?: boolean; title?: string };
+type Props = { description?: string; isRoot?: boolean; title?: string; pubDate?: Date };
 
-const { description, isRoot = false, title } = Astro.props;
+const { description, isRoot = false, title, pubDate } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title ?? SITE_TITLE} description={description ?? SITE_DESCRIPTION} />
+    <BaseHead
+      title={title ?? SITE_TITLE}
+      description={description ?? SITE_DESCRIPTION}
+      pubDate={pubDate}
+    />
   </head>
   <body class="body">
     <header class="container header">

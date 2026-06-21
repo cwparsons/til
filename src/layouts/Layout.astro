@@ -2,9 +2,15 @@
 import BaseHead from '@/components/BaseHead.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_WORDMARK } from '@/consts';
 
-type Props = { description?: string; isRoot?: boolean; title?: string; pubDate?: Date };
+type Props = {
+  description?: string;
+  isRoot?: boolean;
+  title?: string;
+  pubDate?: Date;
+  updatedDate?: Date;
+};
 
-const { description, isRoot = false, title, pubDate } = Astro.props;
+const { description, isRoot = false, title, pubDate, updatedDate } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,6 +20,7 @@ const { description, isRoot = false, title, pubDate } = Astro.props;
       title={title ?? SITE_TITLE}
       description={description ?? SITE_DESCRIPTION}
       pubDate={pubDate}
+      updatedDate={updatedDate}
     />
   </head>
   <body class="body">

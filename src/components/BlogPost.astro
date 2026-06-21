@@ -23,12 +23,12 @@ const structuredData = {
 };
 ---
 
-<article>
+<article data-pagefind-body>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
   <PostHeader {...Astro.props} />
 
-  <div class="content" data-pagefind-body>
+  <div class="content">
     <slot />
   </div>
 </article>

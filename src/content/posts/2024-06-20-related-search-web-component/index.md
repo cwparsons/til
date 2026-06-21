@@ -1,7 +1,7 @@
 ---
 title: 'Related search web component for PnP Modern Search'
 description: 'A web component for showing related search results within a PnP Modern Search result.'
-pubDate: June 20, 2024
+pubDate: 2024-06-20
 tags: ['sharepoint-spfx', 'web-components']
 ---
 

@@ -3,9 +3,10 @@ import rss from '@astrojs/rss';
 import type { APIContext } from 'astro';
 import { experimental_AstroContainer as AstroContainer } from 'astro/container';
 import { loadRenderers } from 'astro:container';
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
 
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
+import { getSortedPosts } from '@/lib/posts';
 
 function prepareRssContent(html: string, baseUrl: string) {
   return html
@@ -24,9 +25,7 @@ export async function GET(context: APIContext) {
   const renderers = await loadRenderers([getMDXRenderer()]);
   const container = await AstroContainer.create({ renderers });
 
-  const posts = (await getCollection('posts')).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-  );
+  const posts = await getSortedPosts();
 
   const items = await Promise.all(
     posts.map(async (post) => {

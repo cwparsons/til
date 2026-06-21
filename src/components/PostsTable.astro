@@ -1,11 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
-
 import FormattedDate from '@/components/FormattedDate.astro';
+import { getSortedPosts } from '@/lib/posts';
 
-const posts = (await getCollection('posts')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = await getSortedPosts();
 ---
 
 <table class="table">

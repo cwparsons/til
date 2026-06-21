@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getSortedPosts } from '@/lib/posts';
 
 type Props = { tag?: string; top?: number };
 
@@ -10,9 +10,7 @@ const { tag, top = 1 } = Astro.props;
 
 const showTop = tag ? Infinity : top;
 
-const posts = (await getCollection('posts'))
-  .filter((t) => !tag || t.data.tags.includes(tag))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = (await getSortedPosts()).filter((t) => !tag || t.data.tags.includes(tag));
 ---
 
 <ul class="list">

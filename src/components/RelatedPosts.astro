@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getSortedPosts } from '@/lib/posts';
 
 type Props = { id: string; tags: string[]; top?: number };
 
@@ -7,10 +7,9 @@ import PostHeader from '@/components/PostHeader.astro';
 
 const { id, tags, top = 3 } = Astro.props;
 
-const posts = (await getCollection('posts'))
+const posts = (await getSortedPosts())
   .filter((p) => p.data.tags.some((t) => tags.includes(t)))
   .filter((p) => p.id !== id)
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, top);
 ---
 

@@ -61,7 +61,10 @@ export async function SVG(component: JSX.Element) {
         weight: 400,
         style: 'normal',
         data: await fs.readFile(
-          path.resolve(process.cwd(), 'node_modules/@fontsource/source-sans-pro/files/source-sans-pro-latin-400-normal.woff'),
+          path.resolve(
+            process.cwd(),
+            'node_modules/@fontsource/source-sans-pro/files/source-sans-pro-latin-400-normal.woff',
+          ),
         ),
       },
       {
@@ -69,7 +72,10 @@ export async function SVG(component: JSX.Element) {
         weight: 600,
         style: 'normal',
         data: await fs.readFile(
-          path.resolve(process.cwd(), 'node_modules/@fontsource/source-sans-pro/files/source-sans-pro-latin-600-normal.woff'),
+          path.resolve(
+            process.cwd(),
+            'node_modules/@fontsource/source-sans-pro/files/source-sans-pro-latin-600-normal.woff',
+          ),
         ),
       },
     ],

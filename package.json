@@ -8,7 +8,7 @@
     "start": "astro dev",
     "build": "astro check --minimumSeverity warning && astro build",
     "prebuild": "npm run update-cms",
-    "prettier": "prettier \"./{src}/**/*.{astro,css,js,mjs,ts,tsx,json}\" --write --no-error-on-unmatched-pattern",
+    "prettier": "prettier \"./src/**/*.{astro,css,js,mjs,ts,tsx,json}\" --write --no-error-on-unmatched-pattern",
     "preview": "astro preview",
     "update-cms": "node ./scripts/update-cms.js",
     "astro": "astro"
@@ -28,6 +28,7 @@
     "@playform/compress": "0.2.3",
     "@rollup/plugin-yaml": "5.0.0",
     "prettier": "3.8.3",
+    "prettier-plugin-astro": "0.14.1",
     "rehype-autolink-headings": "7.1.0",
     "remark-gfm": "4.0.1",
     "remark-smartypants": "3.0.2",

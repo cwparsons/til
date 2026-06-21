@@ -105,5 +105,9 @@ const { Content } = await render(post);
     document.querySelectorAll('.astro-code').forEach((block) => codeBlockObserver!.observe(block));
   }
 
-  document.addEventListener('astro:page-load', initCodeBlocks);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCodeBlocks);
+  } else {
+    initCodeBlocks();
+  }
 </script>

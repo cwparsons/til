@@ -67,10 +67,6 @@ export default defineConfig({
       HTML: false,
     }),
   ],
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: 'hover',
-  },
   vite: {
     plugins: [yaml()],
   },

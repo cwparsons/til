@@ -19,6 +19,9 @@ jobs:
 
       - name: Install, build, and upload your site output
         uses: withastro/action@v6
+        with:
+          # Keep in sync with .nvmrc
+          node-version: 22.14.0
 
   deploy:
     needs: build

@@ -39,7 +39,7 @@ export default defineConfig({
           maxDepth: 2,
         },
       ],
-      // @ts-ignore
+      // @ts-expect-error remarkSmartypants's plugin type doesn't line up with Astro's RemarkPlugin signature
       remarkSmartypants,
     ],
     shikiConfig: {
@@ -67,7 +67,10 @@ export default defineConfig({
       HTML: false,
     }),
   ],
-  prefetch: false,
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'hover',
+  },
   vite: {
     plugins: [yaml()],
   },

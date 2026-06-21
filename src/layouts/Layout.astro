@@ -24,6 +24,8 @@ const { description, isRoot = false, title, pubDate, updatedDate } = Astro.props
     />
   </head>
   <body class="body">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
     <header class="container header">
       <a class="home-link" href="/">
         {
@@ -74,7 +76,7 @@ const { description, isRoot = false, title, pubDate, updatedDate } = Astro.props
       </div>
     </header>
 
-    <main class="container main">
+    <main id="main" class="container main">
       <slot />
     </main>
 
@@ -88,6 +90,21 @@ const { description, isRoot = false, title, pubDate, updatedDate } = Astro.props
   .body {
     display: flex;
     flex-direction: column;
+  }
+
+  .skip-link {
+    position: absolute;
+    inset-block-start: 0.5rem;
+    inset-inline-start: 0.5rem;
+    z-index: 10;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    background-color: rgb(var(--background-accent-color));
+    transform: translateY(-200%);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
   }
 
   .header {

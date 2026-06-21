@@ -11,15 +11,25 @@ type Props = CollectionEntry<'posts'>['data'] & {
   prevPost?: CollectionEntry<'posts'>;
 };
 
-const { title, description, pubDate, nextPost, prevPost } = Astro.props;
+const { title, description, pubDate, updatedDate, nextPost, prevPost } = Astro.props;
+
+const postURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(Astro.url.pathname.replace(/\/$/, '') + '/opengraph.png', Astro.site);
 
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
   headline: title,
-  creator: 'Christopher Parsons',
   description: description,
-  datePublished: pubDate,
+  author: {
+    '@type': 'Person',
+    name: 'Christopher Parsons',
+    url: Astro.site?.href,
+  },
+  image: ogImageURL.href,
+  datePublished: pubDate.toISOString(),
+  ...(updatedDate && { dateModified: updatedDate.toISOString() }),
+  mainEntityOfPage: postURL.href,
 };
 ---
 

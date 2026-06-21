@@ -3,12 +3,10 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import yaml from '@rollup/plugin-yaml';
 import pagefind from 'astro-pagefind';
-import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+import { rehypeHeadingIds, unified } from '@astrojs/markdown-remark';
 import playformCompress from '@playform/compress';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import remarkGfm from 'remark-gfm';
 import remarkToc from 'remark-toc';
-import remarkSmartypants from 'remark-smartypants';
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,26 +20,27 @@ export default defineConfig({
     },
   },
   markdown: {
-    rehypePlugins: [
-      rehypeHeadingIds,
-      [
-        rehypeAutolinkHeadings,
-        {
-          behavior: 'wrap',
-        },
+    processor: unified({
+      gfm: true,
+      smartypants: true,
+      rehypePlugins: [
+        rehypeHeadingIds,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'wrap',
+          },
+        ],
       ],
-    ],
-    remarkPlugins: [
-      remarkGfm,
-      [
-        remarkToc,
-        {
-          maxDepth: 2,
-        },
+      remarkPlugins: [
+        [
+          remarkToc,
+          {
+            maxDepth: 2,
+          },
+        ],
       ],
-      // @ts-expect-error remarkSmartypants's plugin type doesn't line up with Astro's RemarkPlugin signature
-      remarkSmartypants,
-    ],
+    }),
     shikiConfig: {
       themes: {
         dark: 'github-dark',

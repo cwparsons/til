@@ -63,7 +63,9 @@ export default defineConfig({
   },
   integrations: [
     pagefind(),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.endsWith('/search/'),
+    }),
     mdx(),
     playformCompress({
       HTML: false,

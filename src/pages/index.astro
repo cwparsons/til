@@ -1,8 +1,34 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import PostsList from '@/components/PostsList.astro';
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_SOCIAL_PROFILES, SITE_TITLE } from '@/consts';
+
+const siteURL = Astro.site?.href ?? 'https://cwparsons.ca/';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteURL}#website`,
+      url: siteURL,
+      name: SITE_TITLE,
+      description: SITE_DESCRIPTION,
+      inLanguage: 'en',
+      publisher: { '@id': `${siteURL}#person` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteURL}#person`,
+      name: SITE_AUTHOR,
+      url: siteURL,
+      sameAs: SITE_SOCIAL_PROFILES,
+    },
+  ],
+};
 ---
 
 <Layout isRoot={true}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <PostsList />
 </Layout>

@@ -6,15 +6,6 @@
   --text-color: 25, 25, 25;
   --font-family: system-ui, sans-serif;
 
-  --pagefind-ui-font: var(--font-family) !important;
-  --pagefind-ui-scale: 1.2 !important;
-  --pagefind-ui-border-radius: 0.5rem !important;
-  --pagefind-ui-primary: rgb(var(--text-color)) !important;
-  --pagefind-ui-text: rgb(var(--text-color)) !important;
-  --pagefind-ui-background: rgb(var(--background-color)) !important;
-  --pagefind-ui-border: rgb(var(--background-color)) !important;
-  --pagefind-ui-tag: rgb(var(--background-color)) !important;
-
   --font-size-sm: clamp(0.825rem, 0.39vi + 0.75rem, 1rem);
   --font-size-base: clamp(1rem, 0.71vi + 0.825rem, 1.25rem);
   --font-size-md: clamp(1.25rem, 1.19vi + 1rem, 1.75rem);
@@ -155,10 +146,27 @@ code {
   font-size: var(--font-size-sm);
 }
 
-mark,
-.pagefind-ui--reset mark {
+mark {
   background-color: rgba(var(--accent-color), 0.5);
   color: rgb(var(--text-color));
+}
+
+// Highlighted matches inside Pagefind results. The component-ui stylesheet
+// renders these marks with a transparent background, so restore the accent
+// highlight (its selectors use ID-level specificity — hence !important).
+.pf-result-excerpt mark,
+.pf-heading-excerpt mark,
+.pf-searchbox-result-excerpt mark {
+  background-color: rgba(var(--accent-color), 0.5) !important;
+  color: rgb(var(--text-color)) !important;
+}
+
+// component-ui truncates result excerpts to a single line; the previous UI
+// wrapped them over multiple lines, so restore wrapping.
+.pf-result-excerpt {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
 }
 
 pre {

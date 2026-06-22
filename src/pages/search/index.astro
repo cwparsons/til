@@ -1,5 +1,5 @@
 ---
-import Search from 'astro-pagefind/components/Search';
+import PagefindConfig from 'astro-pagefind/components/PagefindConfig.astro';
 
 import Layout from '@/layouts/Layout.astro';
 import { SITE_TITLE } from '@/consts';
@@ -7,5 +7,45 @@ import { SITE_TITLE } from '@/consts';
 
 <Layout title={`Search - ${SITE_TITLE}`}>
   <h1>Search posts</h1>
-  <Search className="pagefind-ui" />
+
+  <div class="pagefind">
+    <PagefindConfig />
+    <pagefind-input placeholder="Search"></pagefind-input>
+    <pagefind-summary></pagefind-summary>
+    <pagefind-results show-images="true" hide-sub-results="true"></pagefind-results>
+  </div>
 </Layout>
+
+<style>
+  .pagefind {
+    --pf-font: var(--font-family);
+    --pf-text: rgb(var(--text-color));
+    --pf-text-secondary: rgba(var(--text-color), 0.75);
+    --pf-text-muted: rgba(var(--text-color), 0.50);
+    --pf-background: rgb(var(--background-color));
+    --pf-border: rgb(var(--text-color), 0.25);
+    --pf-border-focus: rgba(var(--text-color), 0.50);
+    --pf-outline-focus: rgb(var(--text-color));
+    --pf-hover: rgba(var(--text-color), 0.07);
+    --pf-skeleton: rgba(var(--text-color), 0.1);
+    --pf-skeleton-shine: rgba(var(--text-color), 0.05);
+    --pf-scroll-shadow: rgba(var(--text-color), 0.08);
+    --pf-mark: rgb(var(--text-color));
+    --pf-border-radius: 0.5rem;
+    --pf-input-height: 4rem;
+    --pf-input-font-size: var(--font-size-md);
+    --pf-results-gap: 1rem;
+    --pf-result-title-font-size: var(--font-size-base);
+    --pf-result-excerpt-font-size: var(--font-size-sm);
+    --pf-summary-font-size: var(--font-size-sm);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pagefind :global(.pf-result-card) {
+    gap: 1rem !important;
+    padding: 1rem !important;
+  }
+</style>

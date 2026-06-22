@@ -69,4 +69,8 @@ export default defineConfig({
   vite: {
     plugins: [yaml()],
   },
+  experimental: {
+    // Generate JSON schemas so editors autocomplete/validate post frontmatter.
+    contentIntellisense: true,
+  },
 });

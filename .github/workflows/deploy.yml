@@ -21,7 +21,7 @@ jobs:
         uses: withastro/action@v6
         with:
           # Keep in sync with .nvmrc
-          node-version: 22.14.0
+          node-version: 24.17.0
 
   deploy:
     needs: build

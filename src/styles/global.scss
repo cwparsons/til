@@ -192,14 +192,7 @@ hr {
   @media (min-width: 48rem) {
     border-radius: 0.5rem;
     margin-inline-end: 0;
-    margin-inline-start: -4.5rem;
     max-width: 100%;
-
-    &.is-wide {
-      margin-inline-start: -12rem;
-      max-width: calc(100% + 12rem - 4rem);
-      min-width: 100%;
-    }
   }
 
   &,

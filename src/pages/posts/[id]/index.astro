@@ -88,24 +88,11 @@ const { Content } = await render(post);
     });
   }
 
-  function updateWideCodeBlocks() {
-    const blocks = document.querySelectorAll('.astro-code');
-
-    blocks.forEach((block) => block.classList.remove('is-wide'));
-    blocks.forEach((block) => {
-      if (block.scrollWidth > block.clientWidth) {
-        block.classList.add('is-wide');
-      }
-    });
-  }
-
   let codeBlockObserver: ResizeObserver | undefined;
 
   function initCodeBlocks() {
     initCopyButtons();
-    updateWideCodeBlocks();
     codeBlockObserver?.disconnect();
-    codeBlockObserver = new ResizeObserver(updateWideCodeBlocks);
     document.querySelectorAll('.astro-code').forEach((block) => codeBlockObserver!.observe(block));
   }
 

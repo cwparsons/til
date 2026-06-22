@@ -15,6 +15,9 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
   image: {
+    // Emit responsive srcset + intrinsic sizing for <Image>/<Picture> by default.
+    layout: 'constrained',
+    responsiveStyles: true,
     service: {
       entrypoint: './src/image-service.ts',
     },

@@ -9,7 +9,7 @@ type Props = {
 const { nextPost, prevPost } = Astro.props;
 ---
 
-<nav class="navigation">
+<nav class="navigation" aria-label="Post navigation">
   {
     prevPost && (
       <a aria-label="Previous post" href={`/posts/${prevPost.id}/`} class="nav-link previous">

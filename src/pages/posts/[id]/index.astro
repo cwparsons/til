@@ -88,12 +88,9 @@ const { Content } = await render(post);
     });
   }
 
-  let codeBlockObserver: ResizeObserver | undefined;
 
   function initCodeBlocks() {
     initCopyButtons();
-    codeBlockObserver?.disconnect();
-    document.querySelectorAll('.astro-code').forEach((block) => codeBlockObserver!.observe(block));
   }
 
   if (document.readyState === 'loading') {

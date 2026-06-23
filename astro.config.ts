@@ -3,10 +3,8 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import yaml from '@rollup/plugin-yaml';
 import pagefind from 'astro-pagefind';
-import { rehypeHeadingIds, unified } from '@astrojs/markdown-remark';
+import { satteri } from '@astrojs/markdown-satteri';
 import playformCompress from '@playform/compress';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import remarkToc from 'remark-toc';
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,27 +21,7 @@ export default defineConfig({
     },
   },
   markdown: {
-    processor: unified({
-      gfm: true,
-      smartypants: true,
-      rehypePlugins: [
-        rehypeHeadingIds,
-        [
-          rehypeAutolinkHeadings,
-          {
-            behavior: 'wrap',
-          },
-        ],
-      ],
-      remarkPlugins: [
-        [
-          remarkToc,
-          {
-            maxDepth: 2,
-          },
-        ],
-      ],
-    }),
+    processor: satteri(),
     shikiConfig: {
       themes: {
         dark: 'github-dark',

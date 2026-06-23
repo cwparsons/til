@@ -9,6 +9,14 @@ Open Graph images are used by messaging apps and social media sites to show a pr
 
 ## Contents
 
+- [Satori](#satori)
+- [Usage in Next.js](#usage-in-nextjs)
+- [Usage in Astro](#usage-in-astro)
+- [Sharp vs resvg-js](#sharp-vs-resvg-js)
+- [Open Graph example with Next.js](#open-graph-example-with-nextjs)
+- [Open Graph example with Astro](#open-graph-example-with-astro)
+- [Non-Open Graph example](#non-open-graph-example)
+
 ## Satori
 
 [Satori](https://github.com/vercel/satori) is a tool that takes JSX and converts it into an SVG. It doesn't support every CSS property unfortunately, but is an easy way for a front-end developer to make images.
